@@ -11,7 +11,7 @@
   <meta property="og:description" content="ABSTのはじまり、現在地、できること、進め方について。">
   <meta property="og:url" content="https://abst.im/">
   <meta name="theme-color" content="#050505">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23030303'/%3E%3Cpath d='M13 49 31 15h8L21 49z' fill='%23fff'/%3E%3Crect x='38' y='15' width='7' height='34' fill='%23fff'/%3E%3Crect x='49' y='15' width='7' height='34' fill='%23e958ff'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="abst.svg">
   <style>
     :root {
       --bg: #030303;
@@ -79,54 +79,23 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
       min-width: 0;
     }
 
-    .brand-mark {
-      position: relative;
-      width: 48px;
-      height: 38px;
+    .brand-logo {
+      width: 40px;
+      height: 40px;
       flex: 0 0 auto;
-    }
-
-    .brand-mark::before,
-    .brand-mark::after,
-    .brand-mark span {
-      position: absolute;
-      bottom: 0;
       display: block;
-      content: "";
-      background: #fff;
-      box-shadow: 0 0 18px rgba(255, 255, 255, .38);
-    }
-
-    .brand-mark::before {
-      left: 1px;
-      width: 7px;
-      height: 36px;
-      transform: skewX(-28deg);
-      transform-origin: bottom left;
-    }
-
-    .brand-mark span {
-      left: 22px;
-      width: 8px;
-      height: 37px;
-    }
-
-    .brand-mark::after {
-      left: 35px;
-      width: 8px;
-      height: 37px;
-      background: var(--accent);
-      box-shadow: 0 0 22px rgba(176, 92, 175, .58);
+      object-fit: contain;
     }
 
     .brand-name {
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1;
-      font-weight: 500;
+      font-weight: 300;
+      letter-spacing: .18em;
     }
 
     .nav {
@@ -446,30 +415,16 @@
       }
 
       .brand {
-        gap: 12px;
+        gap: 11px;
       }
 
-      .brand-mark {
-        width: 38px;
-        height: 32px;
-      }
-
-      .brand-mark::before {
-        height: 31px;
-      }
-
-      .brand-mark span {
-        left: 17px;
-        height: 32px;
-      }
-
-      .brand-mark::after {
-        left: 29px;
+      .brand-logo {
+        width: 32px;
         height: 32px;
       }
 
       .brand-name {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .nav {
@@ -504,7 +459,7 @@
   <header class="header">
     <div class="header-inner">
       <a class="brand" href="#" aria-label="ABST home">
-        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <img class="brand-logo" src="abst.svg" alt="" aria-hidden="true">
         <span class="brand-name">ABST</span>
       </a>
       <nav class="nav" aria-label="Primary">
