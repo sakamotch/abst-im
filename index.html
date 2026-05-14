@@ -271,8 +271,8 @@
 
     .section {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: clamp(42px, 6vw, 96px);
+      grid-template-columns: 180px 1fr;
+      gap: clamp(28px, 4vw, 56px);
       padding: clamp(46px, 5vw, 66px) 0;
       border-top: 1px solid var(--line);
     }
@@ -449,9 +449,26 @@
 
     .contact-row {
       display: grid;
-      grid-template-columns: minmax(360px, 1fr) minmax(340px, 480px);
-      gap: clamp(48px, 7vw, 100px);
-      align-items: center;
+      grid-template-columns: minmax(420px, 1fr) minmax(360px, 500px);
+      gap: clamp(34px, 5vw, 72px);
+      align-items: stretch;
+    }
+
+    .contact-section {
+      align-items: start;
+      grid-template-columns: 150px 1fr;
+      gap: clamp(28px, 4vw, 56px);
+    }
+
+    .contact-section .section-body {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .contact-section .mail-link {
+      align-self: center;
+      padding-left: clamp(48px, 5vw, 76px);
+      border-left: 1px solid var(--line);
     }
 
     .mail-link {
@@ -460,13 +477,17 @@
       justify-content: space-between;
       gap: 24px;
       min-width: 0;
-      padding: 0 0 12px;
-      border-bottom: 1px solid rgba(176, 92, 175, .55);
+      padding: 0;
       color: var(--accent);
       font-size: clamp(24px, 3.2vw, 40px);
       line-height: 1.2;
       font-weight: 300;
       overflow-wrap: anywhere;
+    }
+
+    .mail-link span:first-child {
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(176, 92, 175, .55);
     }
 
     .mail-link span:last-child {
@@ -540,6 +561,16 @@
       .connect-grid,
       .contact-row {
         grid-template-columns: 1fr;
+      }
+
+      .contact-section {
+        align-items: start;
+        grid-template-columns: 1fr;
+      }
+
+      .contact-section .mail-link {
+        padding-left: 0;
+        border-left: 0;
       }
 
       .connect-item {
@@ -817,7 +848,7 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section contact-section" id="contact">
       <div class="section-label">
         <span class="label-bar" aria-hidden="true"></span>
         <h2 class="section-title">Contact</h2>
@@ -827,7 +858,6 @@
           <p class="small-copy">
             <span class="copy-line">仮想空間で実現したいことがある方、</span>
             <span class="copy-line">仮想空間の制作・開発・企画に携わりたい方はご連絡ください。</span>
-            <span class="copy-line">3Dモデル制作、ソフトウェア開発、イベント企画を中心に。</span>
           </p>
           <a class="mail-link" href="mailto:contact@abst.im">
             <span>contact@abst.im</span>
