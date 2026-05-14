@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ABST</title>
-  <meta name="description" content="ABSTは、仮想空間での「なりたい」と「やりたい」を実現する制作チームです。">
+  <meta name="description" content="ABSTは、仮想空間での「なりたい」と「やりたい」を実現するためのプロジェクトです。">
   <link rel="canonical" href="https://abst.im/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ABST">
-  <meta property="og:description" content="仮想空間での「なりたい」と「やりたい」を実現する。">
+  <meta property="og:description" content="ABSTのはじまり、現在地、できること、進め方について。">
   <meta property="og:url" content="https://abst.im/">
   <meta name="theme-color" content="#050505">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23030303'/%3E%3Cpath d='M13 49 31 15h8L21 49z' fill='%23fff'/%3E%3Crect x='38' y='15' width='7' height='34' fill='%23fff'/%3E%3Crect x='49' y='15' width='7' height='34' fill='%23e958ff'/%3E%3C/svg%3E">
@@ -22,7 +22,6 @@
       --accent: #b05caf;
       --container: 1400px;
       --side: clamp(28px, 5vw, 76px);
-      --hero-image: none; /* 後で hero 画像に差し替え: url("assets/hero.jpg") */
       color-scheme: dark;
     }
 
@@ -149,132 +148,20 @@
       outline: none;
     }
 
-    .hero {
-      position: relative;
-      min-height: min(760px, 86svh);
-      display: grid;
-      align-items: center;
-      padding-top: 96px;
-    }
-
-    .hero-visual {
-      position: absolute;
-      inset: 100px 0 40px;
-      overflow: hidden;
-      background:
-        var(--hero-image),
-        linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, 0) 38%),
-        linear-gradient(90deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, 0));
-      background-position: center;
-      background-size: cover;
-      isolation: isolate;
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 74% -18% -7%;
-      background:
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, .18) 0 1px, transparent 1px 8px),
-        linear-gradient(90deg, rgba(255, 255, 255, .22), rgba(176, 92, 175, .34), rgba(255, 255, 255, .05));
-      opacity: .48;
-      transform: perspective(460px) rotateX(64deg);
-      transform-origin: top;
-      filter: blur(.2px);
-    }
-
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 52%, transparent 0 28%, rgba(0, 0, 0, .42) 56%, rgba(0, 0, 0, .88) 100%);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .hero-placeholder-copy {
-      position: absolute;
-      left: clamp(40px, 6vw, 96px);
-      top: 40%;
-      z-index: 6;
-      width: min(420px, 46vw);
-      color: rgba(255, 255, 255, .94);
-      font-size: clamp(18px, 2vw, 28px);
-      line-height: 1.55;
-      font-weight: 300;
-    }
-
-    .hero-placeholder-copy small {
-      display: block;
-      margin-top: 20px;
-      color: rgba(255, 255, 255, .58);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .beam {
-      position: absolute;
-      bottom: 23%;
-      width: clamp(52px, 7vw, 86px);
-      height: clamp(250px, 40vw, 405px);
-      background: linear-gradient(90deg, rgba(255, 255, 255, .86), #fff 47%, rgba(255, 255, 255, .82));
-      box-shadow: 0 0 38px rgba(255, 255, 255, .62);
-      z-index: 2;
-    }
-
-    .beam-a {
-      left: 23%;
-      transform: skewX(-28deg);
-    }
-
-    .beam-b {
-      left: 49%;
-    }
-
-    .beam-c {
-      left: 67%;
-      background: linear-gradient(90deg, rgba(176, 92, 175, .72), #b05caf 48%, rgba(126, 60, 126, .86));
-      box-shadow: 0 0 46px rgba(176, 92, 175, .42);
-    }
-
-    .figure {
-      position: absolute;
-      left: 48%;
-      bottom: 20%;
-      width: 13px;
-      height: 66px;
-      z-index: 4;
-      filter: drop-shadow(0 0 8px #000);
-    }
-
-    .figure::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 4px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #020202;
-    }
-
-    .figure::after {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 2px;
-      width: 10px;
-      height: 55px;
-      border-radius: 8px 8px 2px 2px;
-      background: #020202;
-    }
-
     .section {
       display: grid;
       grid-template-columns: 180px 1fr;
       gap: clamp(28px, 4vw, 56px);
-      padding: clamp(46px, 5vw, 66px) 0;
+      padding: clamp(46px, 5vw, 70px) 0;
       border-top: 1px solid var(--line);
+    }
+
+    .page-hero {
+      min-height: min(640px, 78svh);
+      display: grid;
+      align-items: end;
+      padding: 150px 0 82px;
+      border-bottom: 1px solid var(--line);
     }
 
     .section:last-of-type {
@@ -305,23 +192,93 @@
     }
 
     .section-body {
-      position: relative;
       min-width: 0;
       padding-left: clamp(42px, 5vw, 72px);
       border-left: 1px solid var(--line);
     }
 
     .lead {
-      max-width: 820px;
+      max-width: 900px;
       margin: 0;
       font-size: clamp(19px, 1.9vw, 27px);
       line-height: 2;
       font-weight: 300;
     }
 
+    .page-title {
+      max-width: 980px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 66px);
+      line-height: 1.16;
+      font-weight: 300;
+    }
+
+    .page-lead {
+      max-width: 880px;
+      margin-top: 34px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .copy {
+      max-width: 900px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 2;
+    }
+
+    .copy + .copy,
+    .lead + .copy {
+      margin-top: 24px;
+    }
+
+    .copy-line {
+      display: block;
+    }
+
+    .plain-list {
+      display: grid;
+      gap: 16px;
+      max-width: 900px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 2;
+    }
+
+    .plain-list li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .plain-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .82em;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(176, 92, 175, .55);
+    }
+
     .work-list {
       display: grid;
       gap: 0;
+    }
+
+    .profile-name {
+      margin: 0 0 24px;
+      color: var(--accent);
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.35;
+      font-weight: 300;
     }
 
     .work-item {
@@ -356,39 +313,32 @@
       font-weight: 400;
     }
 
-    .work-desc,
-    .small-copy {
+    .work-desc {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
       line-height: 2;
     }
 
-    .copy-line {
-      display: block;
-      word-break: keep-all;
-      overflow-wrap: normal;
-    }
-
-    .connect-grid {
+    .triad {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      margin: 38px 0 32px;
+      margin-top: 34px;
     }
 
-    .connect-item {
+    .triad-item {
       min-width: 0;
       padding: 2px clamp(30px, 4vw, 58px);
       border-left: 1px solid var(--soft-line);
     }
 
-    .connect-item:first-child {
+    .triad-item:first-child {
       padding-left: 0;
       border-left: 0;
     }
 
-    .connect-item h3 {
+    .triad-item h3 {
       margin: 0 0 12px;
       color: var(--accent);
       font-size: clamp(19px, 2vw, 25px);
@@ -396,79 +346,11 @@
       font-weight: 400;
     }
 
-    .flow {
-      grid-template-columns: 160px 1fr;
-      gap: 48px;
-      padding-right: 0;
-      padding-left: 0;
-    }
-
-    .flow .section-body {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    .flow-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: clamp(34px, 5vw, 72px);
-      counter-reset: flow;
-    }
-
-    .flow-item {
-      position: relative;
-      min-width: 0;
-    }
-
-    .flow-item:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      top: 12px;
-      right: clamp(-42px, -3.2vw, -18px);
-      color: rgba(255, 255, 255, .55);
-      font-size: 34px;
-      line-height: 1;
-    }
-
-    .flow-item .num {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .flow-item h3 {
-      margin: 0 0 14px;
-      font-size: clamp(17px, 1.6vw, 21px);
-      line-height: 1.45;
-      font-weight: 400;
-    }
-
-    .flow .small-copy {
-      font-size: 14px;
-      line-height: 1.95;
-    }
-
     .contact-row {
       display: grid;
       grid-template-columns: minmax(420px, 1fr) minmax(360px, 500px);
       gap: clamp(34px, 5vw, 72px);
-      align-items: stretch;
-    }
-
-    .contact-section {
-      align-items: start;
-      grid-template-columns: 150px 1fr;
-      gap: clamp(28px, 4vw, 56px);
-    }
-
-    .contact-section .section-body {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    .contact-section .mail-link {
-      align-self: center;
-      padding-left: clamp(48px, 5vw, 76px);
-      border-left: 1px solid var(--line);
+      align-items: center;
     }
 
     .mail-link {
@@ -477,7 +359,6 @@
       justify-content: space-between;
       gap: 24px;
       min-width: 0;
-      padding: 0;
       color: var(--accent);
       font-size: clamp(24px, 3.2vw, 40px);
       line-height: 1.2;
@@ -495,18 +376,6 @@
       font-size: clamp(28px, 3vw, 42px);
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
     @media (max-width: 880px) {
       .header-inner {
         padding-top: 22px;
@@ -517,37 +386,20 @@
         font-size: 13px;
       }
 
-      .hero {
-        min-height: 690px;
-        align-items: start;
+      .page-hero {
+        min-height: 520px;
+        padding-top: 132px;
+        padding-bottom: 62px;
       }
 
-      .hero-visual {
-        inset: 108px 0 32px;
-      }
-
-      .hero-placeholder-copy {
-        left: 28px;
-        top: 31%;
-        width: min(360px, 58vw);
-      }
-
-      .section,
-      .flow {
+      .section {
         grid-template-columns: 1fr;
         gap: 22px;
-        padding-right: 0;
-        padding-left: 0;
       }
 
       .section-body {
         padding-left: 0;
         border-left: 0;
-      }
-
-      .copy-line {
-        word-break: normal;
-        overflow-wrap: anywhere;
       }
 
       .work-item {
@@ -558,38 +410,20 @@
         grid-column: 2;
       }
 
-      .connect-grid,
+      .triad,
       .contact-row {
         grid-template-columns: 1fr;
       }
 
-      .contact-section {
-        align-items: start;
-        grid-template-columns: 1fr;
-      }
-
-      .contact-section .mail-link {
-        padding-left: 0;
-        border-left: 0;
-      }
-
-      .connect-item {
+      .triad-item {
         padding: 22px 0;
         border-left: 0;
         border-top: 1px solid var(--soft-line);
       }
 
-      .connect-item:first-child {
+      .triad-item:first-child {
         padding-top: 0;
         border-top: 0;
-      }
-
-      .flow-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .flow-item:not(:last-child)::after {
-        display: none;
       }
     }
 
@@ -641,28 +475,14 @@
       .nav {
         flex-wrap: wrap;
         justify-content: flex-end;
-        max-width: 140px;
+        max-width: 180px;
         gap: 8px 16px;
       }
 
-      .hero {
-        min-height: 650px;
-      }
-
-      .hero-visual {
-        top: 112px;
-      }
-
-      .hero-placeholder-copy {
-        left: 20px;
-        top: 28%;
-        width: min(300px, 72vw);
-        font-size: 18px;
-      }
-
-      .beam {
-        width: 48px;
-        height: 260px;
+      .page-hero {
+        min-height: 480px;
+        padding-top: 124px;
+        padding-bottom: 48px;
       }
 
       .work-item {
@@ -672,10 +492,6 @@
 
       .work-desc {
         grid-column: auto;
-      }
-
-      .flow-list {
-        grid-template-columns: 1fr;
       }
 
       .mail-link {
@@ -688,42 +504,108 @@
   <header class="header">
     <div class="header-inner">
       <a class="brand" href="#" aria-label="ABST home">
-        <!-- ロゴ画像に差し替える場合は、この .brand-mark と .brand-name を img に置き換えてください。 -->
         <span class="brand-mark" aria-hidden="true"><span></span></span>
         <span class="brand-name">ABST</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="https://x.com/abst_im" target="_blank" rel="noopener">X</a>
+        <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">X</a>
+        <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">VRChat</a>
         <a href="mailto:contact@abst.im">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="site">
-    <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title" class="sr-only">Anyone Becomes Someone There</h1>
-      <!-- HERO画像を使う場合は、CSSの --hero-image に url("assets/hero.jpg") を指定してください。 -->
-      <div class="hero-visual" aria-hidden="true">
-        <!-- HERO画像に文字を含める場合は、.hero-placeholder-copy を削除してください。 -->
-        <div class="hero-placeholder-copy">
-          Anyone Becomes<br>Someone There
-          <small>ABST</small>
-        </div>
-        <span class="beam beam-a"></span>
-        <span class="beam beam-b"></span>
-        <span class="beam beam-c"></span>
-        <span class="figure"></span>
+    <section class="page-hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title" class="page-title">
+          <span class="copy-line">仮想空間での「なりたい」と</span>
+          <span class="copy-line">「やりたい」を、形にする。</span>
+        </h1>
+        <p class="page-lead">
+          <span class="copy-line">ABSTは、VRChatなどの仮想空間で活動する人に向けて、</span>
+          <span class="copy-line">まだ曖昧な願いや構想を、実際に使えるものへ変えていくプロジェクトです。</span>
+        </p>
       </div>
     </section>
 
-    <section class="section" id="mission">
+    <section class="section" id="origin">
       <div class="section-label">
         <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Mission</h2>
+        <h2 class="section-title">はじまり</h2>
       </div>
       <div class="section-body">
         <p class="lead">
-          <span class="copy-line">仮想空間での「なりたい」と「やりたい」を実現する。</span>
+          ABSTは、もともとBOOTHショップ「ABST」として始まりました。
+        </p>
+        <p class="copy">
+          <span class="copy-line">名前の由来は Abstract です。</span>
+          <span class="copy-line">まだ曖昧で、言葉にしきれていないもの。</span>
+          <span class="copy-line">何を作ればよいか決まりきっていない願いや、具体的な仕様になる前の構想。</span>
+          <span class="copy-line">ABSTは、そうしたものを受け取り、仮想空間で使える形にします。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="stage">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">現在地</h2>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          現在のABSTは、会社や固定された制作チームではありません。
+        </p>
+        <p class="copy">
+          <span class="copy-line">プロジェクトとして立ち上げている段階だからこそ、</span>
+          <span class="copy-line">実体以上に大きく見せるのではなく、相談を受け、作れるものを作り、</span>
+          <span class="copy-line">必要な人と組み、直接つないだ方がよいものはつなぎます。</span>
+        </p>
+        <p class="copy">
+          <span class="copy-line">ABSTは、仮想空間で何かを始めたい人が最初に相談できる入口になります。</span>
+          <span class="copy-line">制作・開発・企画を必要な作り手へつなぎ、</span>
+          <span class="copy-line">実際に活動が始められるところまで届ける体制を育てていきます。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="perspective">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">視点</h2>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          技術だけでも、体験だけでも足りない。
+        </p>
+        <p class="copy">
+          <span class="copy-line">仮想空間で何かを実現するには、</span>
+          <span class="copy-line">画像・音声・3D・AI・Web・制作ツールなどの技術を、</span>
+          <span class="copy-line">目的に合わせて選び、組み合わせる必要があります。</span>
+        </p>
+        <p class="copy">
+          <span class="copy-line">そして、仮想空間は仕様や成果物だけで成り立つ場所ではありません。</span>
+          <span class="copy-line">そこには、遊ぶ人、表現する人、作る人、人を招く人がいます。</span>
+          <span class="copy-line">ABSTは、その場で使われること、誰かの活動が始まることまで見据えて考えます。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="representative">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">代表</h2>
+      </div>
+      <div class="section-body">
+        <h3 class="profile-name">坂本クリス</h3>
+        <p class="copy">
+          <span class="copy-line">ABSTは、坂本クリスが代表として進めています。</span>
+          <span class="copy-line">技術者として相談内容を整理し、必要な技術や制作物を見立てます。</span>
+        </p>
+        <p class="copy">
+          <span class="copy-line">同時に、坂本クリス自身も仮想空間で活動する当事者です。</span>
+          <span class="copy-line">遊ぶ人、作る人、人を招く人の間に立ち、</span>
+          <span class="copy-line">自ら制作に関わりながら、必要な作り手との連携や紹介も行います。</span>
         </p>
       </div>
     </section>
@@ -731,7 +613,7 @@
     <section class="section" id="what-we-do">
       <div class="section-label">
         <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">What we do</h2>
+        <h2 class="section-title">できること</h2>
       </div>
       <div class="section-body">
         <div class="work-list">
@@ -739,108 +621,24 @@
             <span class="num">01</span>
             <h3 class="work-name">3Dモデル制作</h3>
             <p class="work-desc">
-              <span class="copy-line">アバター、ワールド、小物など</span>
-              <span class="copy-line">仮想空間で使える3Dモデルを制作します。</span>
+              <span class="copy-line">アバター、衣装、小物、アクセサリー、演出用オブジェクトなど、</span>
+              <span class="copy-line">仮想空間で自分らしく存在するためのものを扱います。</span>
             </p>
           </article>
           <article class="work-item">
             <span class="num">02</span>
             <h3 class="work-name">ソフトウェア開発</h3>
             <p class="work-desc">
-              <span class="copy-line">制作支援ツール、配信・制御・3DCGなど</span>
-              <span class="copy-line">仮想空間での体験を支えるソフトウェアを開発します。</span>
+              <span class="copy-line">制作支援ツール、画像・音声・3D処理、UI、</span>
+              <span class="copy-line">仮想空間での活動を支える専用ツールなどを扱います。</span>
             </p>
           </article>
           <article class="work-item">
             <span class="num">03</span>
             <h3 class="work-name">イベント企画</h3>
             <p class="work-desc">
-              <span class="copy-line">VRChatなどの体験設計や、</span>
-              <span class="copy-line">人が集まり、出会いを生む企画をつくります。</span>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Connect</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          <span class="copy-line">仮想空間で実現したいこと、</span>
-          <span class="copy-line">それを作れる人をつなぎます。</span>
-        </p>
-        <div class="connect-grid">
-          <article class="connect-item">
-            <h3>作る</h3>
-            <p class="small-copy">
-              <span class="copy-line">ABSTで作れるものは、</span>
-              <span class="copy-line">自分たちで作る。</span>
-            </p>
-          </article>
-          <article class="connect-item">
-            <h3>組む</h3>
-            <p class="small-copy">
-              <span class="copy-line">複数の専門が必要なものは、</span>
-              <span class="copy-line">チームを組んで進める。</span>
-            </p>
-          </article>
-          <article class="connect-item">
-            <h3>つなぐ</h3>
-            <p class="small-copy">
-              <span class="copy-line">直接相談した方がよい場合は、</span>
-              <span class="copy-line">適切な作り手を紹介する。</span>
-            </p>
-          </article>
-        </div>
-        <p class="small-copy">
-          <span class="copy-line">依頼する人は、誰に頼みたいかわからない状態から相談できます。</span>
-          <span class="copy-line">作る人は、自分のスキルを必要としている人や仕事に出会えます。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section flow" id="flow">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Flow</h2>
-      </div>
-      <div class="section-body">
-        <div class="flow-list">
-          <article class="flow-item">
-            <span class="num">01</span>
-            <h3>相談</h3>
-            <p class="small-copy">
-              <span class="copy-line">実現したいことや課題をお聞きします。</span>
-              <span class="copy-line">具体的な仕様がなくても、</span>
-              <span class="copy-line">小さな相談から始められます。</span>
-            </p>
-          </article>
-          <article class="flow-item">
-            <span class="num">02</span>
-            <h3>設計</h3>
-            <p class="small-copy">
-              <span class="copy-line">必要な機能、技術、進め方を整理します。</span>
-              <span class="copy-line">チーム構成や役割も含めて考えます。</span>
-            </p>
-          </article>
-          <article class="flow-item">
-            <span class="num">03</span>
-            <h3>制作・開発・企画</h3>
-            <p class="small-copy">
-              <span class="copy-line">3Dモデル、開発、企画を</span>
-              <span class="copy-line">組み合わせて進めます。</span>
-              <span class="copy-line">形になるものを形にします。</span>
-            </p>
-          </article>
-          <article class="flow-item">
-            <span class="num">04</span>
-            <h3>届ける</h3>
-            <p class="small-copy">
-              <span class="copy-line">仮想空間に伝わる手段として届けます。</span>
+              <span class="copy-line">VRChatなどの仮想空間で、</span>
+              <span class="copy-line">人が集まり、活動が生まれる場を企画します。</span>
               <span class="copy-line">必要に応じて運用や実施まで伴走します。</span>
             </p>
           </article>
@@ -848,16 +646,84 @@
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
+    <section class="section" id="how-we-work">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">進め方</h2>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          作る。組む。つなぐ。
+        </p>
+        <div class="triad">
+          <article class="triad-item">
+            <h3>作る</h3>
+            <p class="copy">自分たちで責任を持てるものは、ABSTで制作・開発します。</p>
+          </article>
+          <article class="triad-item">
+            <h3>組む</h3>
+            <p class="copy">複数の専門性が必要なものは、目的に合わせて作り手と組みます。</p>
+          </article>
+          <article class="triad-item">
+            <h3>つなぐ</h3>
+            <p class="copy">ABSTを通すより直接相談した方がよい場合は、適切な作り手へつなぎます。</p>
+          </article>
+        </div>
+        <p class="copy">
+          <span class="copy-line">ABSTは、すべてを抱え込むことを目的にしていません。</span>
+          <span class="copy-line">相談内容を整理し、実現したいことに対してもっとも現実的な形を考えます。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="for-clients">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">相談したい方へ</h2>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          まだ内容が固まっていない段階から相談できます。
+        </p>
+        <ul class="plain-list">
+          <li>VRChatでこういう活動をしたい</li>
+          <li>こういう姿になりたい</li>
+          <li>こういう道具や仕組みがほしい</li>
+          <li>誰に頼めばいいかわからない</li>
+        </ul>
+        <p class="copy">
+          <span class="copy-line">そうした段階から、</span>
+          <span class="copy-line">必要な制作物、技術、進め方を一緒に整理します。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="for-creators">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">関わりたい方へ</h2>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          ABSTは、仮想空間の制作・開発・企画に関わりたい作り手にも開かれています。
+        </p>
+        <p class="copy">
+          <span class="copy-line">3Dモデル制作、ソフトウェア開発、イベント企画、ワールド制作、演出、運用など、</span>
+          <span class="copy-line">仮想空間に関わるスキルを持つ人とつながり、実現できることを増やしていきます。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
       <div class="section-label">
         <span class="label-bar" aria-hidden="true"></span>
         <h2 class="section-title">Contact</h2>
       </div>
       <div class="section-body">
         <div class="contact-row">
-          <p class="small-copy">
+          <p class="copy">
             <span class="copy-line">仮想空間で実現したいことがある方、</span>
-            <span class="copy-line">仮想空間の制作・開発・企画に携わりたい方はご連絡ください。</span>
+            <span class="copy-line">仮想空間の制作・開発・企画に関わりたい方はご連絡ください。</span>
           </p>
           <a class="mail-link" href="mailto:contact@abst.im">
             <span>contact@abst.im</span>
