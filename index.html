@@ -10,17 +10,18 @@
   <meta property="og:title" content="ABST">
   <meta property="og:description" content="ABSTのはじまり、現在地、できること、進め方について。">
   <meta property="og:url" content="https://abst.im/">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#07080d">
   <link rel="icon" type="image/svg+xml" href="abst.svg">
   <style>
     :root {
-      --bg: #070707;
-      --bg-deep: #020202;
-      --text: #f7f7f7;
-      --muted: #bdbdbd;
-      --line: rgba(255, 255, 255, .18);
-      --soft-line: rgba(255, 255, 255, .1);
+      --bg: #0a0a10;
+      --bg-deep: #030408;
+      --text: #f7f5f8;
+      --muted: #c4bfca;
+      --line: rgba(236, 229, 241, .18);
+      --soft-line: rgba(236, 229, 241, .1);
       --accent: #b05caf;
+      --accent-glow: rgba(176, 92, 175, .34);
       --container: 1400px;
       --side: clamp(28px, 5vw, 76px);
       color-scheme: dark;
@@ -38,7 +39,6 @@
       margin: 0;
       min-width: 320px;
       background:
-        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px) 0 0 / 88px 88px,
         linear-gradient(180deg, rgba(176, 92, 175, .16) 0%, transparent 34%, rgba(176, 92, 175, .08) 74%, transparent 100%),
         linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 52%, #030303 100%);
       color: var(--text);
@@ -67,6 +67,7 @@
       display: flex;
       justify-content: center;
       background: linear-gradient(180deg, rgba(2, 2, 2, .9), rgba(2, 2, 2, .58) 58%, rgba(2, 2, 2, 0));
+      border-bottom: 1px solid rgba(236, 229, 241, .12);
       pointer-events: none;
     }
 
@@ -113,7 +114,7 @@
       align-items: center;
       gap: clamp(24px, 4vw, 58px);
       font-size: 14px;
-      color: rgba(247, 247, 247, .82);
+      color: rgba(247, 245, 248, .82);
       white-space: nowrap;
     }
 
@@ -178,7 +179,7 @@
       aspect-ratio: 1;
       background: url("abst.svg") center / contain no-repeat;
       opacity: .1;
-      filter: drop-shadow(0 0 48px rgba(176, 92, 175, .42));
+      filter: drop-shadow(0 0 48px var(--accent-glow));
     }
 
     .page-hero::after {
@@ -206,10 +207,9 @@
     .label-bar {
       width: 3px;
       height: 30px;
-      margin-top: 6px;
       flex: 0 0 auto;
       background: var(--accent);
-      box-shadow: 0 0 20px rgba(176, 92, 175, .36);
+      box-shadow: 0 0 20px var(--accent-glow);
     }
 
     .section-title {
@@ -232,7 +232,7 @@
       font-size: 1.48rem;
       line-height: 1.9;
       font-weight: 300;
-      color: rgba(247, 247, 247, .96);
+      color: rgba(247, 245, 248, .96);
     }
 
     .page-title {
@@ -298,7 +298,7 @@
       width: 7px;
       height: 7px;
       background: var(--accent);
-      box-shadow: 0 0 14px rgba(176, 92, 175, .34);
+      box-shadow: 0 0 14px var(--accent-glow);
     }
 
     .work-list {
@@ -519,7 +519,6 @@
 
       body {
         font-size: 15px;
-        background-size: 64px 64px, auto, auto;
       }
 
       .header {
