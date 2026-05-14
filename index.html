@@ -20,8 +20,8 @@
       --line: rgba(255, 255, 255, .24);
       --soft-line: rgba(255, 255, 255, .14);
       --accent: #e958ff;
-      --container: 1180px;
-      --side: clamp(24px, 5vw, 64px);
+      --container: 1360px;
+      --side: clamp(24px, 4vw, 56px);
       --hero-image: none; /* 後で hero 画像に差し替え: url("assets/hero.jpg") */
       color-scheme: dark;
     }
@@ -157,31 +157,9 @@
       padding-top: 92px;
     }
 
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      width: min(410px, 80vw);
-      margin-left: clamp(8px, 5vw, 54px);
-      padding-top: 64px;
-    }
-
-    .hero-copy h1 {
-      margin: 0 0 22px;
-      font-size: clamp(18px, 2vw, 28px);
-      line-height: 1.55;
-      font-weight: 300;
-    }
-
-    .hero-copy p {
-      margin: 0;
-      max-width: 360px;
-      color: rgba(255, 255, 255, .75);
-      font-size: 13px;
-    }
-
     .hero-visual {
       position: absolute;
-      inset: 94px clamp(0px, 3vw, 26px) 32px 34%;
+      inset: 94px 0 32px;
       overflow: hidden;
       background:
         var(--hero-image),
@@ -212,6 +190,26 @@
       background: radial-gradient(circle at 50% 52%, transparent 0 28%, rgba(0, 0, 0, .42) 56%, rgba(0, 0, 0, .88) 100%);
       pointer-events: none;
       z-index: 5;
+    }
+
+    .hero-placeholder-copy {
+      position: absolute;
+      left: clamp(32px, 5.5vw, 86px);
+      top: 39%;
+      z-index: 6;
+      width: min(420px, 46vw);
+      color: rgba(255, 255, 255, .94);
+      font-size: clamp(18px, 2vw, 28px);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    .hero-placeholder-copy small {
+      display: block;
+      margin-top: 20px;
+      color: rgba(255, 255, 255, .58);
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .beam {
@@ -497,18 +495,18 @@
       }
 
       .hero {
-        min-height: 760px;
+        min-height: 690px;
         align-items: start;
       }
 
-      .hero-copy {
-        width: min(100%, 360px);
-        margin-left: 0;
-        padding-top: 120px;
+      .hero-visual {
+        inset: 108px 0 32px;
       }
 
-      .hero-visual {
-        inset: 245px 0 32px 0;
+      .hero-placeholder-copy {
+        left: 28px;
+        top: 31%;
+        width: min(360px, 58vw);
       }
 
       .section,
@@ -605,7 +603,7 @@
       .nav {
         flex-wrap: wrap;
         justify-content: flex-end;
-        max-width: 180px;
+        max-width: 140px;
         gap: 8px 16px;
       }
 
@@ -613,12 +611,15 @@
         min-height: 650px;
       }
 
-      .hero-copy {
-        padding-top: 126px;
+      .hero-visual {
+        top: 112px;
       }
 
-      .hero-visual {
-        top: 270px;
+      .hero-placeholder-copy {
+        left: 20px;
+        top: 28%;
+        width: min(300px, 72vw);
+        font-size: 18px;
       }
 
       .beam {
@@ -654,22 +655,22 @@
         <span class="brand-name">ABST</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="https://x.com/" target="_blank" rel="noopener">X</a>
-        <a href="#booth">BOOTH</a>
-        <a href="#vrchat">VRChat</a>
-        <a href="#contact">Contact</a>
+        <a href="https://x.com/abst_im" target="_blank" rel="noopener">X</a>
+        <a href="mailto:contact@abst.im">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="site">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">Anyone Becomes<br>Someone There</h1>
-        <p>ABST</p>
-      </div>
+      <h1 id="hero-title" class="sr-only">Anyone Becomes Someone There</h1>
       <!-- HERO画像を使う場合は、CSSの --hero-image に url("assets/hero.jpg") を指定してください。 -->
       <div class="hero-visual" aria-hidden="true">
+        <!-- HERO画像に文字を含める場合は、.hero-placeholder-copy を削除してください。 -->
+        <div class="hero-placeholder-copy">
+          Anyone Becomes<br>Someone There
+          <small>ABST</small>
+        </div>
         <span class="beam beam-a"></span>
         <span class="beam beam-b"></span>
         <span class="beam beam-c"></span>
@@ -694,7 +695,7 @@
       </div>
       <div class="section-body">
         <div class="work-list">
-          <article class="work-item" id="vrchat">
+          <article class="work-item">
             <span class="num">01</span>
             <h3 class="work-name">3Dモデル制作</h3>
             <p class="work-desc">アバター、ワールド、小物など<br>仮想空間で使える3Dモデルを制作します。</p>
@@ -713,7 +714,7 @@
       </div>
     </section>
 
-    <section class="section" id="booth">
+    <section class="section">
       <div class="section-label">
         <span class="label-bar" aria-hidden="true"></span>
         <h2 class="section-title">Connect</h2>
