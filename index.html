@@ -20,8 +20,8 @@
       --line: rgba(255, 255, 255, .24);
       --soft-line: rgba(255, 255, 255, .14);
       --accent: #e958ff;
-      --container: 1360px;
-      --side: clamp(24px, 4vw, 56px);
+      --container: 1400px;
+      --side: clamp(28px, 5vw, 76px);
       --hero-image: none; /* 後で hero 画像に差し替え: url("assets/hero.jpg") */
       color-scheme: dark;
     }
@@ -54,7 +54,7 @@
     .site {
       width: min(100%, var(--container));
       margin: 0 auto;
-      padding: 0 var(--side) 56px;
+      padding: 0 var(--side) 88px;
     }
 
     .header {
@@ -73,7 +73,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 32px;
-      padding: 32px var(--side) 18px;
+      padding: 36px var(--side) 22px;
       pointer-events: auto;
     }
 
@@ -151,15 +151,15 @@
 
     .hero {
       position: relative;
-      min-height: min(740px, 86svh);
+      min-height: min(820px, 88svh);
       display: grid;
       align-items: center;
-      padding-top: 92px;
+      padding-top: 104px;
     }
 
     .hero-visual {
       position: absolute;
-      inset: 94px 0 32px;
+      inset: 108px 0 48px;
       overflow: hidden;
       background:
         var(--hero-image),
@@ -194,8 +194,8 @@
 
     .hero-placeholder-copy {
       position: absolute;
-      left: clamp(32px, 5.5vw, 86px);
-      top: 39%;
+      left: clamp(40px, 6vw, 96px);
+      top: 40%;
       z-index: 6;
       width: min(420px, 46vw);
       color: rgba(255, 255, 255, .94);
@@ -271,9 +271,9 @@
 
     .section {
       display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: clamp(28px, 5vw, 70px);
-      padding: 38px 20px 36px;
+      grid-template-columns: 220px 1fr;
+      gap: clamp(42px, 6vw, 96px);
+      padding: clamp(58px, 6vw, 82px) 0;
       border-top: 1px solid var(--line);
     }
 
@@ -283,7 +283,7 @@
 
     .section-label {
       display: flex;
-      gap: 18px;
+      gap: 20px;
       align-items: flex-start;
       min-width: 0;
     }
@@ -316,15 +316,15 @@
     .section-body {
       position: relative;
       min-width: 0;
-      padding-left: clamp(26px, 4vw, 58px);
+      padding-left: clamp(42px, 5vw, 72px);
       border-left: 1px solid var(--line);
     }
 
     .lead {
-      max-width: 760px;
+      max-width: 820px;
       margin: 0;
-      font-size: clamp(18px, 2vw, 26px);
-      line-height: 1.9;
+      font-size: clamp(19px, 1.9vw, 27px);
+      line-height: 2;
       font-weight: 300;
     }
 
@@ -335,10 +335,10 @@
 
     .work-item {
       display: grid;
-      grid-template-columns: 68px minmax(160px, 260px) 1fr;
-      gap: clamp(18px, 3vw, 46px);
+      grid-template-columns: 76px minmax(190px, 300px) minmax(320px, 1fr);
+      gap: clamp(26px, 4vw, 62px);
       align-items: start;
-      padding: 28px 0;
+      padding: 40px 0;
       border-bottom: 1px solid var(--soft-line);
     }
 
@@ -370,19 +370,25 @@
       margin: 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.9;
+      line-height: 2;
+    }
+
+    .copy-line {
+      display: block;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
 
     .connect-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      margin: 32px 0 30px;
+      margin: 48px 0 40px;
     }
 
     .connect-item {
       min-width: 0;
-      padding: 0 clamp(24px, 4vw, 52px);
+      padding: 2px clamp(30px, 4vw, 58px);
       border-left: 1px solid var(--soft-line);
     }
 
@@ -400,10 +406,10 @@
     }
 
     .flow {
-      grid-template-columns: 135px 1fr;
-      gap: 34px;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
       padding-right: 0;
-      padding-left: 20px;
+      padding-left: 0;
     }
 
     .flow .section-body {
@@ -414,7 +420,7 @@
     .flow-list {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: clamp(18px, 4vw, 54px);
+      gap: clamp(34px, 5vw, 72px);
       counter-reset: flow;
     }
 
@@ -439,16 +445,21 @@
     }
 
     .flow-item h3 {
-      margin: 0 0 8px;
+      margin: 0 0 14px;
       font-size: clamp(17px, 1.6vw, 21px);
       line-height: 1.45;
       font-weight: 400;
     }
 
+    .flow .small-copy {
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
     .contact-row {
       display: grid;
-      grid-template-columns: 1fr minmax(300px, 430px);
-      gap: clamp(26px, 5vw, 76px);
+      grid-template-columns: minmax(360px, 1fr) minmax(340px, 480px);
+      gap: clamp(48px, 7vw, 100px);
       align-items: center;
     }
 
@@ -520,6 +531,11 @@
       .section-body {
         padding-left: 0;
         border-left: 0;
+      }
+
+      .copy-line {
+        word-break: normal;
+        overflow-wrap: anywhere;
       }
 
       .work-item {
@@ -684,7 +700,9 @@
         <h2 class="section-title">Mission</h2>
       </div>
       <div class="section-body">
-        <p class="lead">仮想空間での「なりたい」と「やりたい」を実現する。</p>
+        <p class="lead">
+          <span class="copy-line">仮想空間での「なりたい」と「やりたい」を実現する。</span>
+        </p>
       </div>
     </section>
 
@@ -698,17 +716,26 @@
           <article class="work-item">
             <span class="num">01</span>
             <h3 class="work-name">3Dモデル制作</h3>
-            <p class="work-desc">アバター、ワールド、小物など<br>仮想空間で使える3Dモデルを制作します。</p>
+            <p class="work-desc">
+              <span class="copy-line">アバター、ワールド、小物など</span>
+              <span class="copy-line">仮想空間で使える3Dモデルを制作します。</span>
+            </p>
           </article>
           <article class="work-item">
             <span class="num">02</span>
             <h3 class="work-name">ソフトウェア開発</h3>
-            <p class="work-desc">制作支援ツール、配信・制御・3DCGなど<br>仮想空間での体験を支えるソフトウェアを開発します。</p>
+            <p class="work-desc">
+              <span class="copy-line">制作支援ツール、配信・制御・3DCGなど</span>
+              <span class="copy-line">仮想空間での体験を支えるソフトウェアを開発します。</span>
+            </p>
           </article>
           <article class="work-item">
             <span class="num">03</span>
             <h3 class="work-name">イベント企画</h3>
-            <p class="work-desc">VRChatなどの体験設計や、<br>人が集まり、出会いを生む企画をつくります。</p>
+            <p class="work-desc">
+              <span class="copy-line">VRChatなどの体験設計や、</span>
+              <span class="copy-line">人が集まり、出会いを生む企画をつくります。</span>
+            </p>
           </article>
         </div>
       </div>
@@ -720,22 +747,37 @@
         <h2 class="section-title">Connect</h2>
       </div>
       <div class="section-body">
-        <p class="lead">仮想空間で実現したいこと、<br>それを作れる人をつなぎます。</p>
+        <p class="lead">
+          <span class="copy-line">仮想空間で実現したいこと、</span>
+          <span class="copy-line">それを作れる人をつなぎます。</span>
+        </p>
         <div class="connect-grid">
           <article class="connect-item">
             <h3>作る</h3>
-            <p class="small-copy">ABSTで作れるものは、<br>自分たちで作る。</p>
+            <p class="small-copy">
+              <span class="copy-line">ABSTで作れるものは、</span>
+              <span class="copy-line">自分たちで作る。</span>
+            </p>
           </article>
           <article class="connect-item">
             <h3>組む</h3>
-            <p class="small-copy">複数の専門が必要なものは、<br>チームを組んで進める。</p>
+            <p class="small-copy">
+              <span class="copy-line">複数の専門が必要なものは、</span>
+              <span class="copy-line">チームを組んで進める。</span>
+            </p>
           </article>
           <article class="connect-item">
             <h3>つなぐ</h3>
-            <p class="small-copy">直接相談した方がよい場合は、<br>適切な作り手を紹介する。</p>
+            <p class="small-copy">
+              <span class="copy-line">直接相談した方がよい場合は、</span>
+              <span class="copy-line">適切な作り手を紹介する。</span>
+            </p>
           </article>
         </div>
-        <p class="small-copy">依頼する人は、誰に頼みたいかわからない状態から相談できます。<br>作る人は、自分のスキルを必要としている人や仕事に出会えます。</p>
+        <p class="small-copy">
+          <span class="copy-line">依頼する人は、誰に頼みたいかわからない状態から相談できます。</span>
+          <span class="copy-line">作る人は、自分のスキルを必要としている人や仕事に出会えます。</span>
+        </p>
       </div>
     </section>
 
@@ -749,22 +791,36 @@
           <article class="flow-item">
             <span class="num">01</span>
             <h3>相談</h3>
-            <p class="small-copy">実現したいことや課題をお聞きします。具体的な仕様がなくても小さくても構いません。</p>
+            <p class="small-copy">
+              <span class="copy-line">実現したいことや課題をお聞きします。</span>
+              <span class="copy-line">具体的な仕様がなくても、</span>
+              <span class="copy-line">小さな相談から始められます。</span>
+            </p>
           </article>
           <article class="flow-item">
             <span class="num">02</span>
             <h3>設計</h3>
-            <p class="small-copy">必要な機能や、技術、進め方を整理します。チーム構成や役割も含めて考えます。</p>
+            <p class="small-copy">
+              <span class="copy-line">必要な機能、技術、進め方を整理します。</span>
+              <span class="copy-line">チーム構成や役割も含めて考えます。</span>
+            </p>
           </article>
           <article class="flow-item">
             <span class="num">03</span>
             <h3>制作・開発・企画</h3>
-            <p class="small-copy">3Dモデル制作、ソフトウェア開発、イベント企画を組み、形になるものを形にします。</p>
+            <p class="small-copy">
+              <span class="copy-line">3Dモデル、開発、企画を</span>
+              <span class="copy-line">組み合わせて進めます。</span>
+              <span class="copy-line">形になるものを形にします。</span>
+            </p>
           </article>
           <article class="flow-item">
             <span class="num">04</span>
             <h3>届ける</h3>
-            <p class="small-copy">仮想空間に伝える手段にして届けます。必要に応じて運用や実施まで伴走します。</p>
+            <p class="small-copy">
+              <span class="copy-line">仮想空間に伝わる手段として届けます。</span>
+              <span class="copy-line">必要に応じて運用や実施まで伴走します。</span>
+            </p>
           </article>
         </div>
       </div>
@@ -777,7 +833,11 @@
       </div>
       <div class="section-body">
         <div class="contact-row">
-          <p class="small-copy">仮想空間で実現したいことがある方、<br>仮想空間の制作・開発・企画に携わりたい方はご連絡ください。<br><br>3Dモデル制作、ソフトウェア開発、イベント企画を中心に。</p>
+          <p class="small-copy">
+            <span class="copy-line">仮想空間で実現したいことがある方、</span>
+            <span class="copy-line">仮想空間の制作・開発・企画に携わりたい方はご連絡ください。</span>
+            <span class="copy-line">3Dモデル制作、ソフトウェア開発、イベント企画を中心に。</span>
+          </p>
           <a class="mail-link" href="mailto:contact@abst.im">
             <span>contact@abst.im</span>
             <span aria-hidden="true">→</span>
