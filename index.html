@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ABST</title>
-  <meta name="description" content="ABSTは、仮想空間での「なりたい」と「やりたい」を実現するためのプロジェクトです。">
+  <title>ABST | 仮想空間の企画・制作・開発</title>
+  <meta name="description" content="ABSTは、VRChatなどの仮想空間での「なりたい」と「やりたい」を、企画・制作・開発・運用を通じて形にしていくプロジェクトです。">
   <link rel="canonical" href="https://abst.im/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ABST">
-  <meta property="og:description" content="ABSTのはじまり、現在地、できること、進め方について。">
+  <meta property="og:title" content="ABST | 仮想空間の企画・制作・開発">
+  <meta property="og:description" content="仮想空間での「なりたい」と「やりたい」を、企画・制作・開発・運用を通じて形にしていくプロジェクトです。">
   <meta property="og:url" content="https://abst.im/">
+  <meta property="og:image" content="https://abst.im/concept.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#07080d">
   <link rel="icon" type="image/svg+xml" href="abst.svg">
   <style>
@@ -41,6 +43,7 @@
       background:
         linear-gradient(180deg, rgba(176, 92, 175, .16) 0%, transparent 34%, rgba(176, 92, 175, .08) 74%, transparent 100%),
         linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 52%, #030303 100%);
+      background-repeat: no-repeat;
       color: var(--text);
       font-family: Inter, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
       font-size: 16px;
@@ -255,6 +258,69 @@
       font-weight: 300;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 11px 22px;
+      border: 1px solid rgba(176, 92, 175, .72);
+      background: rgba(176, 92, 175, .16);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.3;
+      transition: border-color .18s ease, background .18s ease;
+    }
+
+    .action-link.secondary {
+      background: transparent;
+      border-color: var(--soft-line);
+      color: rgba(247, 245, 248, .82);
+    }
+
+    .action-link:hover,
+    .action-link:focus-visible {
+      border-color: rgba(176, 92, 175, 1);
+      background: rgba(176, 92, 175, .24);
+      outline: none;
+    }
+
+    .hero-scope {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      max-width: 820px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      color: rgba(247, 245, 248, .78);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .hero-scope li {
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .hero-scope li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .72em;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
     .copy {
       max-width: 900px;
       margin: 0;
@@ -306,6 +372,76 @@
       gap: 0;
     }
 
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 34px;
+    }
+
+    .area-item {
+      min-width: 0;
+      padding: 2px clamp(22px, 3vw, 42px);
+      border-left: 1px solid var(--soft-line);
+    }
+
+    .area-item:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .area-item h3 {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 1.24rem;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    .entry-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      max-width: 900px;
+      margin-top: 34px;
+      border-top: 1px solid var(--soft-line);
+    }
+
+    .entry-item {
+      display: block;
+      min-width: 0;
+      padding: 22px 28px 22px 0;
+      border-bottom: 1px solid var(--soft-line);
+    }
+
+    .entry-item:nth-child(even) {
+      padding-left: 28px;
+      border-left: 1px solid var(--soft-line);
+    }
+
+    .entry-item h3 {
+      margin: 0 0 8px;
+      color: var(--text);
+      font-size: 1.04rem;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .entry-item[href] {
+      transition: border-color .18s ease;
+    }
+
+    .entry-item[href]:hover,
+    .entry-item[href]:focus-visible {
+      border-color: rgba(176, 92, 175, .42);
+      outline: none;
+    }
+
+    .entry-item[href]:hover h3,
+    .entry-item[href]:focus-visible h3 {
+      color: var(--accent);
+    }
+
     .profile-name {
       margin: 0 0 24px;
       color: var(--accent);
@@ -316,8 +452,9 @@
 
     .work-item {
       display: grid;
-      grid-template-columns: 76px minmax(190px, 300px) minmax(320px, 1fr);
-      gap: clamp(26px, 4vw, 62px);
+      grid-template-columns: 76px minmax(140px, 180px) minmax(320px, 1fr);
+      column-gap: clamp(14px, 1.6vw, 22px);
+      row-gap: 14px;
       align-items: start;
       padding: 34px 0;
       border-bottom: 1px solid var(--soft-line);
@@ -414,18 +551,12 @@
       flex: 0 0 auto;
       color: var(--accent);
       font-size: 2.45rem;
-      transition: transform .18s ease;
     }
 
     .mail-link:hover,
     .mail-link:focus-visible {
       border-color: rgba(176, 92, 175, .42);
       outline: none;
-    }
-
-    .mail-link:hover span:last-child,
-    .mail-link:focus-visible span:last-child {
-      transform: translateX(8px);
     }
 
     @media (max-width: 1120px) {
@@ -471,6 +602,29 @@
 
       .page-lead {
         font-size: 1.12rem;
+      }
+
+      .area-grid,
+      .entry-list {
+        grid-template-columns: 1fr;
+      }
+
+      .area-item {
+        padding: 22px 0;
+        border-left: 0;
+        border-top: 1px solid var(--soft-line);
+      }
+
+      .area-item:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .entry-item,
+      .entry-item:nth-child(even) {
+        padding-left: 0;
+        padding-right: 0;
+        border-left: 0;
       }
 
       .section {
@@ -574,6 +728,16 @@
         font-size: 1.04rem;
       }
 
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .action-link {
+        width: 100%;
+      }
+
       .section-title {
         font-size: 1.12rem;
       }
@@ -622,27 +786,131 @@
           <span class="copy-line">やりたいことを始める。</span>
         </h1>
         <p class="page-lead">
-          <span class="copy-line">ABSTは、VRChatなどの仮想空間で活動する人に向けて、</span>
-          <span class="copy-line">まだ曖昧な願いや構想を、実際に使えるものへ変えていくプロジェクトです。</span>
+          <span class="copy-line">ABSTは、VRChatなどの仮想空間での「なりたい」と「やりたい」を、</span>
+          <span class="copy-line">企画・制作・開発・運用を通じて形にしていくプロジェクトです。</span>
         </p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="action-link" href="mailto:contact@abst.im?subject=ABST%E3%81%B8%E3%81%AE%E9%80%A3%E7%B5%A1">連絡する</a>
+          <a class="action-link secondary" href="#scope">扱う領域を見る</a>
+          <a class="action-link secondary" href="#how-we-work">進め方を見る</a>
+        </div>
+        <ul class="hero-scope" aria-label="ABSTが扱う領域">
+          <li>3Dモデル</li>
+          <li>ワールド</li>
+          <li>イベント</li>
+          <li>専用ツール</li>
+          <li>演出</li>
+          <li>運用</li>
+        </ul>
       </div>
     </section>
 
-    <section class="section" id="origin">
+    <section class="section" id="scope">
       <div class="section-label">
         <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">はじまり</h2>
+        <h2 class="section-title">関わる領域</h2>
       </div>
       <div class="section-body">
         <p class="lead">
-          ABSTは、BOOTHショップ「ABST」として始まりました。
+          仮想空間で必要になるものを、総合的に扱います。
         </p>
         <p class="copy">
-          <span class="copy-line">名前の由来は Abstract です。</span>
-          <span class="copy-line">まだ曖昧で、言葉にしきれていないもの。</span>
-          <span class="copy-line">何を作ればよいか決まりきっていない願いや、具体的な仕様になる前の構想。</span>
-          <span class="copy-line">ABSTは、そうしたものを受け取り、仮想空間で使える形にします。</span>
+          <span class="copy-line">ABSTは、3Dモデルだけ、ツール開発だけ、といった単体の制作活動に閉じません。</span>
+          <span class="copy-line">仮想空間で活動を始めるために必要な企画、制作物、技術、運用を組み合わせ、実現に向けて組み立てます。</span>
         </p>
+        <div class="area-grid">
+          <article class="area-item">
+            <h3>姿をつくる</h3>
+            <p class="copy">アバター、衣装、小物、アクセサリー、演出用オブジェクトなど。</p>
+          </article>
+          <article class="area-item">
+            <h3>仕組みをつくる</h3>
+            <p class="copy">制作支援ツール、専用UI、画像・音声・3D処理、活動を支えるソフトウェアなど。</p>
+          </article>
+          <article class="area-item">
+            <h3>場をつくる</h3>
+            <p class="copy">VRChatなどで人が集まるイベント、ワールド、演出、体験設計など。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="for-clients">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">始めたい方へ</h2>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          まだ内容が固まっていない段階から、一緒に形にしていきます。
+        </p>
+        <p class="copy">
+          <span class="copy-line">「何を作ればいいかわからない」状態でも構いません。</span>
+          <span class="copy-line">実現したいこと、困っていること、作りたい体験から、必要な制作物や進め方を整理します。</span>
+        </p>
+        <div class="entry-list">
+          <article class="entry-item">
+            <h3>こういう姿になりたい</h3>
+            <p class="copy">アバター、衣装、小物、演出用オブジェクトなど。</p>
+          </article>
+          <article class="entry-item">
+            <h3>こういう場を開きたい</h3>
+            <p class="copy">イベント、ワールド、体験設計、運用など。</p>
+          </article>
+          <article class="entry-item">
+            <h3>こういう仕組みがほしい</h3>
+            <p class="copy">専用ツール、制作支援、画像・音声・3D処理、UIなど。</p>
+          </article>
+          <article class="entry-item">
+            <h3>進め方が見えない</h3>
+            <p class="copy">要件整理、優先順位づけ、必要に応じた作り手との連携など。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-we-work">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">進め方</h2>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          目的に合わせて、必要なものを順番に形にします。
+        </p>
+        <div class="work-list">
+          <article class="work-item">
+            <span class="num">01</span>
+            <h3 class="work-name">ヒアリング</h3>
+            <p class="work-desc">
+              <span class="copy-line">やりたいこと、課題、必要なものを伺います。</span>
+              <span class="copy-line">具体的な仕様がなくても構いません。</span>
+            </p>
+          </article>
+          <article class="work-item">
+            <span class="num">02</span>
+            <h3 class="work-name">設計</h3>
+            <p class="work-desc">
+              <span class="copy-line">必要な体験、制作物、技術、運用を整理し、進め方を決めます。</span>
+            </p>
+          </article>
+          <article class="work-item">
+            <span class="num">03</span>
+            <h3 class="work-name">制作</h3>
+            <p class="work-desc">
+              <span class="copy-line">3Dモデル、ソフトウェア、イベント、ワールド、演出などを目的に合わせて制作・開発・企画します。</span>
+              <span class="copy-line">必要に応じて作り手と連携します。</span>
+            </p>
+          </article>
+          <article class="work-item">
+            <span class="num">04</span>
+            <h3 class="work-name">納品・運用</h3>
+            <p class="work-desc">
+              <span class="copy-line">仮想空間で実際に使える状態まで届けます。</span>
+              <span class="copy-line">必要に応じて運用や実施まで伴走します。</span>
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -656,14 +924,30 @@
           ABSTは、会社や固定された制作チームではありません。
         </p>
         <p class="copy">
-          <span class="copy-line">相談内容に応じて、制作・開発・企画に必要な体制を組み立てます。</span>
-          <span class="copy-line">自分たちで作るもの、チームで進めるもの、</span>
-          <span class="copy-line">適切な作り手を紹介するものを見極めながら、実現に向けて動きます。</span>
+          <span class="copy-line">相談内容に応じて、自分たちで作るもの、チームで進めるもの、適切な作り手と連携するものを見極めます。</span>
+          <span class="copy-line">連携や進行整理は、仮想空間で使えるものを形にするために必要な範囲で行います。</span>
         </p>
         <p class="copy">
-          <span class="copy-line">ABSTは、仮想空間で何かを始めたい人が最初に相談できる窓口になることを目指します。</span>
-          <span class="copy-line">まだ形になっていない願いや構想を受け取り、必要な制作・開発・企画を通じて、</span>
-          <span class="copy-line">仮想空間で実際に活動が始まるところまで届けます。</span>
+          <span class="copy-line">ABSTは、仮想空間で何かを始めたい人とともに、必要な制作・開発・企画を進めます。</span>
+          <span class="copy-line">まだ形になっていない願いや構想を受け取り、仮想空間で実際に活動が始まるところまで届けます。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="representative">
+      <div class="section-label">
+        <span class="label-bar" aria-hidden="true"></span>
+        <h2 class="section-title">代表</h2>
+      </div>
+      <div class="section-body">
+        <h3 class="profile-name">坂本クリス</h3>
+        <p class="copy">
+          <span class="copy-line">ABSTは、坂本クリスが代表として進めています。</span>
+          <span class="copy-line">ソフトウェア開発を軸に、画像・音声・3D・AI・Webなどを扱ってきました。</span>
+        </p>
+        <p class="copy">
+          <span class="copy-line">坂本クリス自身も、VRChatで遊び、場を作り、人と関わりながら活動しています。</span>
+          <span class="copy-line">仮想空間を外から見るのではなく、自ら楽しみながら、その可能性を広げていきたいと考えています。</span>
         </p>
       </div>
     </section>
@@ -687,126 +971,8 @@
           <span class="copy-line">活動を始められる。</span>
         </p>
         <p class="copy">
-          <span class="copy-line">ただ眺めるだけの場所ではなく、</span>
-          <span class="copy-line">自分から関わり、遊び、集まり、何者かになれる場所。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">ABSTは、その楽しさを知っています。</span>
-          <span class="copy-line">そして、その楽しさをもっと広げたい。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">3Dモデル制作、ソフトウェア開発、イベント企画は、</span>
-          <span class="copy-line">そのための手段です。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="representative">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">代表</h2>
-      </div>
-      <div class="section-body">
-        <h3 class="profile-name">坂本クリス</h3>
-        <p class="copy">
-          <span class="copy-line">ABSTは、坂本クリスが代表として進めています。</span>
-          <span class="copy-line">ソフトウェア開発を軸に、画像・音声・3D・AI・Webなどを扱ってきました。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">坂本クリス自身も、VRChatで遊び、場を作り、人と関わりながら活動しています。</span>
-          <span class="copy-line">仮想空間を外から見るのではなく、自ら楽しみながら、その可能性を広げていきたいと考えています。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">ABSTでは、相談内容を整理し、必要な制作物や進め方を一緒に考えます。</span>
-          <span class="copy-line">自ら制作に関わりながら、必要な人と一緒に進め、仮想空間で使える形まで届けます。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="what-we-do">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">できること</h2>
-      </div>
-      <div class="section-body">
-        <div class="work-list">
-          <article class="work-item">
-            <span class="num">01</span>
-            <h3 class="work-name">3Dモデル制作</h3>
-            <p class="work-desc">
-              <span class="copy-line">アバター、衣装、小物、アクセサリー、演出用オブジェクトなど、</span>
-              <span class="copy-line">仮想空間で自分らしく存在するためのものを扱います。</span>
-            </p>
-          </article>
-          <article class="work-item">
-            <span class="num">02</span>
-            <h3 class="work-name">ソフトウェア開発</h3>
-            <p class="work-desc">
-              <span class="copy-line">制作支援ツール、画像・音声・3D処理、UI、</span>
-              <span class="copy-line">仮想空間での活動を支える専用ツールなどを扱います。</span>
-            </p>
-          </article>
-          <article class="work-item">
-            <span class="num">03</span>
-            <h3 class="work-name">イベント企画</h3>
-            <p class="work-desc">
-              <span class="copy-line">VRChatなどの仮想空間で、</span>
-              <span class="copy-line">人が集まり、活動が生まれる場を企画します。</span>
-              <span class="copy-line">必要に応じて運用や実施まで伴走します。</span>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="how-we-work">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">進め方</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          作る。組む。つなぐ。
-        </p>
-        <div class="triad">
-          <article class="triad-item">
-            <h3>作る</h3>
-            <p class="copy">自分たちで責任を持てるものは、ABSTで制作・開発します。</p>
-          </article>
-          <article class="triad-item">
-            <h3>組む</h3>
-            <p class="copy">複数の専門性が必要なものは、目的に合わせて作り手と組みます。</p>
-          </article>
-          <article class="triad-item">
-            <h3>つなぐ</h3>
-            <p class="copy">ABSTを通すより直接相談した方がよい場合は、適切な作り手へつなぎます。</p>
-          </article>
-        </div>
-        <p class="copy">
-          <span class="copy-line">ABSTは、すべてを抱え込むことを目的にしていません。</span>
-          <span class="copy-line">相談内容を整理し、実現したいことに対してもっとも現実的な形を考えます。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="for-clients">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">相談したい方へ</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          まだ内容が固まっていない段階から相談できます。
-        </p>
-        <ul class="plain-list">
-          <li>VRChatでこういう活動をしたい</li>
-          <li>こういう姿になりたい</li>
-          <li>こういう道具や仕組みがほしい</li>
-          <li>誰に頼めばいいかわからない</li>
-        </ul>
-        <p class="copy">
-          <span class="copy-line">そうした段階から、</span>
-          <span class="copy-line">必要な制作物、技術、進め方を一緒に整理します。</span>
+          <span class="copy-line">ただ眺めるだけの場所ではなく、自分から関わり、遊び、集まり、何者かになれる場所。</span>
+          <span class="copy-line">ABSTは、その楽しさを知っています。そして、その楽しさをもっと広げたい。</span>
         </p>
       </div>
     </section>
