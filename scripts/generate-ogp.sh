@@ -35,14 +35,15 @@ trap 'rm -f "$TMP_LOGO"' EXIT
   -fill '#f7f5f8' \
   -annotate +392+245 'ABST' \
   -font Noto-Sans-CJK-JP-Medium \
-  -pointsize 40 \
+  -pointsize 38 \
   -fill '#f7f5f8' \
-  -annotate +398+315 '仮想空間での活動を形にする' \
+  -annotate +398+308 '仮想空間を、' \
+  -annotate +398+356 'もうひとつの人生を持てる場所にする' \
   -font Noto-Sans-CJK-JP \
   -pointsize 25 \
   -fill '#c4bfca' \
-  -annotate +400+370 'VRChatなどの仮想空間での「なりたい」と「やりたい」を' \
-  -annotate +400+411 '相談に応じて整理し、形にするプロジェクト' \
+  -annotate +400+418 '仮想空間での「なりたい」と「やりたい」を' \
+  -annotate +400+459 '制作・開発・企画で形にするプロジェクト' \
   -font Noto-Sans-CJK-JP \
   -pointsize 24 \
   -fill '#b05caf' \
