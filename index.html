@@ -3,31 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ABST | 仮想空間を、もうひとつの人生を持てる場所にする</title>
-  <meta name="description" content="ABSTは、仮想空間での「なりたい」と「やりたい」を、3Dモデル制作・ソフトウェア開発・イベント企画で形にするプロジェクトです。">
+  <title>ABST | 仮想空間をもっと楽しく</title>
+  <meta name="description" content="ABSTは、仮想空間をもっと楽しくするために活動しています。">
   <link rel="canonical" href="https://abst.im/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ABST | 仮想空間を、もうひとつの人生を持てる場所にする">
-  <meta property="og:description" content="仮想空間での「なりたい」と「やりたい」を、3Dモデル制作・ソフトウェア開発・イベント企画で形にするプロジェクトです。">
+  <meta property="og:title" content="ABST | 仮想空間をもっと楽しく">
+  <meta property="og:description" content="仮想空間をもっと楽しく。">
   <meta property="og:url" content="https://abst.im/">
   <meta property="og:image" content="https://abst.im/ogp.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#07080d">
+  <meta name="theme-color" content="#080809">
   <link rel="icon" type="image/svg+xml" href="abst.svg">
   <style>
     :root {
-      --bg: #0a0a10;
-      --bg-deep: #030408;
-      --text: #f7f5f8;
-      --muted: #c4bfca;
-      --line: rgba(236, 229, 241, .18);
-      --soft-line: rgba(236, 229, 241, .1);
+      --bg: #080809;
+      --text: #f7f3ee;
+      --muted: rgba(247, 243, 238, .54);
       --accent: #b05caf;
-      --accent-glow: rgba(176, 92, 175, .34);
-      --container: 1400px;
-      --side: clamp(28px, 5vw, 76px);
+      --side: clamp(24px, 7vw, 104px);
       color-scheme: dark;
     }
 
@@ -36,22 +31,26 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      min-height: 100%;
+      background: var(--bg);
     }
 
     body {
       margin: 0;
       min-width: 320px;
+      min-height: 100svh;
       background:
-        linear-gradient(180deg, rgba(176, 92, 175, .16) 0%, transparent 34%),
-        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 52%, #030303 100%);
-      background-repeat: no-repeat;
+        radial-gradient(circle at 50% 42%, rgba(176, 92, 175, .2), transparent 38rem),
+        radial-gradient(circle at 50% 58%, rgba(176, 92, 175, .09), transparent 52rem),
+        radial-gradient(circle at 50% 78%, rgba(247, 243, 238, .045), transparent 30rem),
+        linear-gradient(180deg, #100d12 0%, var(--bg) 56%, #050506 100%);
       color: var(--text);
       font-family: Inter, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
-      font-size: 16px;
-      line-height: 1.9;
       text-rendering: geometricPrecision;
       -webkit-font-smoothing: antialiased;
+      display: grid;
+      place-items: center;
+      padding: clamp(28px, 6vw, 72px) var(--side);
     }
 
     a {
@@ -59,996 +58,91 @@
       text-decoration: none;
     }
 
-    .site {
-      width: min(100%, var(--container));
-      margin: 0 auto;
-      padding: 0 var(--side) 88px;
+    .page {
+      width: min(100%, 26rem);
+      display: grid;
+      justify-items: center;
+      text-align: center;
     }
 
-    .header {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 20;
-      display: flex;
-      justify-content: center;
-      background: linear-gradient(180deg, rgba(2, 2, 2, .9), rgba(2, 2, 2, .58) 58%, rgba(2, 2, 2, 0));
-      border-bottom: 1px solid rgba(236, 229, 241, .12);
-      pointer-events: none;
-    }
-
-    @supports (backdrop-filter: blur(16px)) {
-      .header {
-        backdrop-filter: blur(16px);
-      }
-    }
-
-    .header-inner {
-      width: min(100%, var(--container));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      padding: 30px var(--side) 24px;
-      pointer-events: auto;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      min-width: 0;
-    }
-
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      flex: 0 0 auto;
+    .logo {
+      width: clamp(58px, 6.5vw, 84px);
+      height: auto;
       display: block;
-      object-fit: contain;
+      margin: 0 0 clamp(52px, 8vw, 96px);
     }
 
-    .brand-name {
-      font-size: 18px;
-      line-height: 1;
-      font-weight: 300;
-      letter-spacing: .18em;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: clamp(24px, 4vw, 58px);
-      font-size: 14px;
-      color: rgba(247, 245, 248, .82);
-      white-space: nowrap;
-    }
-
-    .nav a {
-      position: relative;
-      padding: 6px 0;
-      transition: color .18s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0;
-      transform: scaleX(.55);
-      transform-origin: left;
-      transition: opacity .18s ease, transform .18s ease;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible {
+    .title {
+      margin: 0;
       color: var(--text);
-      outline: none;
-    }
-
-    .nav a:hover::after,
-    .nav a:focus-visible::after {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    .section {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: clamp(28px, 4vw, 56px);
-      padding: clamp(56px, 6vw, 92px) 0;
-      border-top: 1px solid var(--soft-line);
-    }
-
-    .page-hero {
-      position: relative;
-      min-height: min(720px, 82svh);
-      display: grid;
-      align-items: end;
-      padding: 172px 0 104px;
-      border-bottom: 1px solid var(--line);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .page-hero::before {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: 64px;
-      z-index: -1;
-      width: min(40vw, 520px);
-      aspect-ratio: 1;
-      background: url("abst.svg") center / contain no-repeat;
-      opacity: .1;
-      filter: drop-shadow(0 0 48px var(--accent-glow));
-    }
-
-    .page-hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      z-index: -1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: .62;
-    }
-
-    .section:last-of-type {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-label {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      min-width: 0;
-      padding-top: 3px;
-    }
-
-    .label-bar {
-      width: 3px;
-      height: 30px;
-      flex: 0 0 auto;
-      background: var(--accent);
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: 1.28rem;
-      line-height: 1.35;
-      font-weight: 500;
-      letter-spacing: .02em;
-    }
-
-    .section-body {
-      min-width: 0;
-      padding-left: clamp(42px, 5vw, 72px);
-      border-left: 1px solid var(--soft-line);
-    }
-
-    .lead {
-      max-width: 900px;
-      margin: 0;
-      font-size: 1.48rem;
-      line-height: 1.9;
-      font-weight: 300;
-      color: rgba(247, 245, 248, .96);
-    }
-
-    .page-title {
-      max-width: 980px;
-      margin: 0;
-      font-size: 4.15rem;
-      line-height: 1.13;
-      font-weight: 300;
-      letter-spacing: .01em;
+      font-size: clamp(1.35rem, 2.9vw, 2.45rem);
+      line-height: 1.28;
+      font-weight: 400;
+      letter-spacing: 0;
       text-wrap: balance;
     }
 
-    .page-lead {
-      max-width: 880px;
-      margin-top: 38px;
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 1.35rem;
-      line-height: 1.95;
-      font-weight: 300;
+    .title span {
+      display: block;
     }
 
-    .hero-actions {
+    .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 36px;
-    }
-
-    .action-link {
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 11px 22px;
-      border: 1px solid rgba(176, 92, 175, .72);
-      background: rgba(176, 92, 175, .16);
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.3;
-      transition: border-color .18s ease, background .18s ease;
-    }
-
-    .action-link.secondary {
-      background: transparent;
-      border-color: var(--soft-line);
-      color: rgba(247, 245, 248, .82);
-    }
-
-    .action-link:hover,
-    .action-link:focus-visible {
-      border-color: rgba(176, 92, 175, 1);
-      background: rgba(176, 92, 175, .24);
-      outline: none;
-    }
-
-    .hero-scope {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      max-width: 820px;
-      margin: 28px 0 0;
-      padding: 0;
-      list-style: none;
-      color: rgba(247, 245, 248, .78);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .hero-scope li {
-      position: relative;
-      padding-left: 16px;
-    }
-
-    .hero-scope li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: .72em;
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    .copy {
-      max-width: 900px;
-      margin: 0;
+      gap: 14px clamp(16px, 2.5vw, 28px);
+      margin-top: clamp(54px, 8vw, 96px);
       color: var(--muted);
-      font-size: 15px;
-      line-height: 2.05;
-    }
-
-    .copy + .copy,
-    .lead + .copy {
-      margin-top: 24px;
-    }
-
-    .copy-line {
-      display: block;
-    }
-
-    .plain-list {
-      display: grid;
-      gap: 12px;
-      max-width: 900px;
-      margin: 32px 0 0;
-      padding: 0;
-      list-style: none;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 2;
-    }
-
-    .plain-list li {
-      position: relative;
-      padding: 10px 0 10px 30px;
-      border-bottom: 1px solid var(--soft-line);
-    }
-
-    .plain-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 1.45em;
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      box-shadow: 0 0 14px var(--accent-glow);
-    }
-
-    .work-list {
-      display: grid;
-      gap: 0;
-    }
-
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin-top: 34px;
-    }
-
-    .area-item {
-      min-width: 0;
-      padding: 2px clamp(22px, 3vw, 42px);
-      border-left: 1px solid var(--soft-line);
-    }
-
-    .area-item:first-child {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    .area-item h3 {
-      margin: 0 0 12px;
-      color: var(--accent);
-      font-size: 1.24rem;
-      line-height: 1.4;
-      font-weight: 400;
-    }
-
-    .entry-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0;
-      max-width: 900px;
-      margin-top: 34px;
-      border-top: 1px solid var(--soft-line);
-    }
-
-    .entry-item {
-      display: block;
-      min-width: 0;
-      padding: 22px 28px 22px 0;
-      border-bottom: 1px solid var(--soft-line);
-    }
-
-    .entry-item:nth-child(even) {
-      padding-left: 28px;
-      border-left: 1px solid var(--soft-line);
-    }
-
-    .entry-item h3 {
-      margin: 0 0 8px;
-      color: var(--text);
-      font-size: 1.04rem;
-      line-height: 1.5;
-      font-weight: 400;
-    }
-
-    .entry-item[href] {
-      transition: border-color .18s ease;
-    }
-
-    .entry-item[href]:hover,
-    .entry-item[href]:focus-visible {
-      border-color: rgba(176, 92, 175, .42);
-      outline: none;
-    }
-
-    .entry-item[href]:hover h3,
-    .entry-item[href]:focus-visible h3 {
-      color: var(--accent);
-    }
-
-    .profile-name {
-      margin: 0 0 24px;
-      color: var(--accent);
-      font-size: 2.2rem;
-      line-height: 1.35;
-      font-weight: 300;
-    }
-
-    .work-item {
-      display: grid;
-      grid-template-columns: 76px minmax(140px, 180px) minmax(320px, 1fr);
-      column-gap: clamp(14px, 1.6vw, 22px);
-      row-gap: 14px;
-      align-items: start;
-      padding: 34px 0;
-      border-bottom: 1px solid var(--soft-line);
-    }
-
-    .work-item:first-child {
-      padding-top: 0;
-    }
-
-    .work-item:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .num {
-      color: var(--accent);
-      font-size: 1.9rem;
+      font-size: .75rem;
       line-height: 1;
-      font-weight: 300;
-      font-variant-numeric: tabular-nums;
     }
 
-    .work-name {
-      margin: 0;
-      font-size: 1.18rem;
-      line-height: 1.5;
-      font-weight: 400;
+    .links a {
+      padding: 8px 0;
+      transition: color .18s ease;
     }
 
-    .work-desc {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 2;
-    }
-
-    .triad {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin-top: 34px;
-    }
-
-    .triad-item {
-      min-width: 0;
-      padding: 2px clamp(30px, 4vw, 58px);
-      border-left: 1px solid var(--soft-line);
-    }
-
-    .triad-item:first-child {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    .triad-item h3 {
-      margin: 0 0 12px;
-      color: var(--accent);
-      font-size: 1.35rem;
-      line-height: 1.4;
-      font-weight: 400;
-    }
-
-    .contact-row {
-      display: grid;
-      grid-template-columns: minmax(420px, 1fr) minmax(360px, 500px);
-      gap: clamp(34px, 5vw, 72px);
-      align-items: center;
-    }
-
-    .mail-link {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-width: 0;
-      color: var(--accent);
-      font-size: 2.35rem;
-      line-height: 1.2;
-      font-weight: 300;
-      overflow-wrap: anywhere;
-      padding: 24px 0;
-      border-top: 0;
-      border-bottom: 1px solid var(--soft-line);
-      transition: border-color .18s ease;
-    }
-
-    .mail-link span:first-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .mail-link span:last-child {
-      flex: 0 0 auto;
-      color: var(--accent);
-      font-size: 2.45rem;
-    }
-
-    .mail-link:hover,
-    .mail-link:focus-visible {
-      border-color: rgba(176, 92, 175, .42);
+    .links a:hover,
+    .links a:focus-visible {
+      color: var(--text);
       outline: none;
     }
 
-    @media (max-width: 1120px) {
-      .page-title {
-        font-size: 3.45rem;
-      }
-
-      .page-lead {
-        font-size: 1.22rem;
-      }
-
-      .lead {
-        font-size: 1.33rem;
-      }
-    }
-
-    @media (max-width: 880px) {
-      .header-inner {
-        padding-top: 22px;
-      }
-
-      .nav {
-        gap: 18px;
-        font-size: 13px;
-      }
-
-      .page-hero {
-        min-height: 520px;
-        padding-top: 138px;
-        padding-bottom: 70px;
-      }
-
-      .page-hero::before {
-        right: 0;
-        bottom: 78px;
-        width: 340px;
-        opacity: .09;
-      }
-
-      .page-title {
-        font-size: 2.7rem;
-      }
-
-      .page-lead {
-        font-size: 1.12rem;
-      }
-
-      .area-grid,
-      .entry-list {
-        grid-template-columns: 1fr;
-      }
-
-      .area-item {
-        padding: 22px 0;
-        border-left: 0;
-        border-top: 1px solid var(--soft-line);
-      }
-
-      .area-item:first-child {
-        padding-top: 0;
-        border-top: 0;
-      }
-
-      .entry-item,
-      .entry-item:nth-child(even) {
-        padding-left: 0;
-        padding-right: 0;
-        border-left: 0;
-      }
-
-      .section {
-        grid-template-columns: 1fr;
-        gap: 26px;
-      }
-
-      .section-body {
-        padding-left: 0;
-        border-left: 0;
-      }
-
-      .work-item {
-        grid-template-columns: 56px 1fr;
-      }
-
-      .work-desc {
-        grid-column: 2;
-      }
-
-      .triad,
-      .contact-row {
-        grid-template-columns: 1fr;
-      }
-
-      .triad-item {
-        padding: 22px 0;
-        border-left: 0;
-        border-top: 1px solid var(--soft-line);
-      }
-
-      .triad-item:first-child {
-        padding-top: 0;
-        border-top: 0;
-      }
-
-      .mail-link {
-        font-size: 1.85rem;
-      }
-    }
-
-    @media (max-width: 580px) {
-      :root {
-        --side: 20px;
-      }
-
+    @media (max-width: 640px) {
       body {
-        font-size: 15px;
+        padding-block: 28px;
       }
 
-      .header {
-        position: absolute;
-        backdrop-filter: none;
+      .logo {
+        margin-bottom: 48px;
       }
 
-      .header-inner {
-        align-items: flex-start;
-        gap: 16px;
-        padding-top: 22px;
+      .title {
+        font-size: clamp(1.35rem, 7vw, 1.85rem);
+        line-height: 1.28;
       }
 
-      .brand {
-        gap: 11px;
-      }
-
-      .brand-logo {
-        width: 32px;
-        height: 32px;
-      }
-
-      .brand-name {
-        font-size: 15px;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        max-width: 190px;
-        gap: 8px 16px;
-      }
-
-      .page-hero {
-        min-height: 480px;
-        padding-top: 126px;
-        padding-bottom: 54px;
-      }
-
-      .page-hero::before {
-        right: 0;
-        bottom: 122px;
-        width: 220px;
-        opacity: .075;
-      }
-
-      .page-title {
-        font-size: 2.16rem;
-      }
-
-      .page-lead,
-      .lead {
-        font-size: 1.04rem;
-      }
-
-      .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .action-link {
-        width: 100%;
-      }
-
-      .section-title {
-        font-size: 1.12rem;
-      }
-
-      .profile-name {
-        font-size: 1.8rem;
-      }
-
-      .work-item {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .work-desc {
-        grid-column: auto;
-      }
-
-      .mail-link {
-        font-size: 1.55rem;
+      .links {
+        margin-top: 48px;
+        font-size: .72rem;
       }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <a class="brand" href="#" aria-label="ABST home">
-        <img class="brand-logo" src="abst.svg" alt="" aria-hidden="true">
-        <span class="brand-name">ABST</span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="https://abst.booth.pm/" target="_blank" rel="noopener">BOOTH</a>
-        <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">VRChat</a>
-        <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">X</a>
-        <a href="mailto:contact@abst.im">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <main class="page" aria-labelledby="page-title">
+    <img class="logo" src="abst.svg" alt="" width="112" height="112">
+    <h1 id="page-title" class="title">
+      <span>仮想空間を</span>
+      <span>もっと楽しく</span>
+    </h1>
 
-  <main class="site">
-    <section class="page-hero" aria-labelledby="page-title">
-      <div>
-        <h1 id="page-title" class="page-title">
-          <span class="copy-line">仮想空間を、</span>
-          <span class="copy-line">もうひとつの人生を</span>
-          <span class="copy-line">持てる場所にする。</span>
-        </h1>
-        <p class="page-lead">
-          <span class="copy-line">望む姿で存在し、遠くの誰かと集まり、活動を始める。</span>
-          <span class="copy-line">ABSTは、仮想空間での「なりたい」と「やりたい」を、</span>
-          <span class="copy-line">3Dモデル制作・ソフトウェア開発・イベント企画で形にするプロジェクトです。</span>
-        </p>
-        <div class="hero-actions" aria-label="Primary actions">
-          <a class="action-link" href="mailto:contact@abst.im?subject=ABST%E3%81%B8%E3%81%AE%E9%80%A3%E7%B5%A1">連絡する</a>
-          <a class="action-link secondary" href="#create">つくるものを見る</a>
-          <a class="action-link secondary" href="#for-you">相談できることを見る</a>
-        </div>
-        <ul class="hero-scope" aria-label="ABSTが扱う領域">
-          <li>3Dモデル</li>
-          <li>アバター</li>
-          <li>衣装・小物</li>
-          <li>専用ツール</li>
-          <li>イベント</li>
-          <li>ワールド</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="why">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Why</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          仮想空間で過ごす時間は、ただの遊びではない。
-        </p>
-        <p class="copy">
-          <span class="copy-line">そこで出会う人がいる。そこでしかなれない姿がある。</span>
-          <span class="copy-line">そこで始まる活動があり、その人を形づくる時間がある。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">ABSTは、その価値を信じています。</span>
-          <span class="copy-line">仮想空間で生きる人たちが、もっと自由に表現し、集まり、続けていけるようにする。</span>
-          <span class="copy-line">そのために、私たちはつくります。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="vision">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Vision</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          ひとつの姿、ひとつの場所、ひとつの役割だけで生きなくていい。
-        </p>
-        <p class="copy">
-          <span class="copy-line">仮想空間では、望む姿で存在できる。</span>
-          <span class="copy-line">距離を越えて誰かと集まれる。</span>
-          <span class="copy-line">新しい活動や文化を始められる。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">現実と並行して育つ、もうひとつの生活。</span>
-          <span class="copy-line">ABSTは、その未来を特別な誰かだけのものにせず、仮想空間を愛する人の手に届くものにしていきます。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="mission">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Mission</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          仮想空間での「なりたい」と「やりたい」を、実際に動く形にする。
-        </p>
-        <p class="copy">
-          <span class="copy-line">まだ言葉になっていない願いでもいい。</span>
-          <span class="copy-line">小さな違和感や、ぼんやりした憧れでもいい。</span>
-          <span class="copy-line">ABSTはそれを受け取り、必要な制作物や企画に整理して、使える状態まで形にします。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="create">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Create</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          ABSTは、仮想空間での制作・開発・企画を行います。
-        </p>
-        <p class="copy">
-          <span class="copy-line">アバターや衣装、活動を支えるツール、人が集まるイベントやワールド。</span>
-          <span class="copy-line">仮想空間で実際に使われるものとして、目的に合わせて設計し、制作します。</span>
-        </p>
-        <div class="area-grid">
-          <article class="area-item">
-            <h3>3Dモデル制作</h3>
-            <p class="copy">アバター、衣装、小物、アクセサリー、演出用オブジェクトなど。</p>
-          </article>
-          <article class="area-item">
-            <h3>ソフトウェア開発</h3>
-            <p class="copy">制作支援ツール、専用UI、画像・音声・3D処理、活動を支えるソフトウェアなど。</p>
-          </article>
-          <article class="area-item">
-            <h3>イベント企画</h3>
-            <p class="copy">人が集まるイベント、ワールド、演出、体験設計、運用など。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="for-you">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">For You</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          あなたの「こうなりたい」から始めてください。
-        </p>
-        <p class="copy">
-          <span class="copy-line">完成した企画でなくても構いません。</span>
-          <span class="copy-line">なりたい姿、開きたい場所、始めたい活動、うまく言葉にできない憧れ。</span>
-          <span class="copy-line">ABSTはそこから一緒に考えます。</span>
-        </p>
-        <div class="entry-list">
-          <article class="entry-item">
-            <h3>こういう姿になりたい</h3>
-            <p class="copy">アバター、衣装、小物、アクセサリー、演出用オブジェクトなど。</p>
-          </article>
-          <article class="entry-item">
-            <h3>活動に必要なものを作りたい</h3>
-            <p class="copy">専用ツール、制作支援、画像・音声・3D処理、UIなど。</p>
-          </article>
-          <article class="entry-item">
-            <h3>人が集まる場を開きたい</h3>
-            <p class="copy">イベント、ワールド、体験設計、演出、運用など。</p>
-          </article>
-          <article class="entry-item">
-            <h3>何から作ればいいかわからない</h3>
-            <p class="copy">やりたいことの整理、優先順位づけ、必要な制作物や進め方の設計など。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="how-we-work">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Process</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          想いを聞き、必要なものを組み立て、使える状態まで届けます。
-        </p>
-        <div class="work-list">
-          <article class="work-item">
-            <span class="num">01</span>
-            <h3 class="work-name">聞く</h3>
-            <p class="work-desc">
-              <span class="copy-line">なりたい姿、始めたい活動、困っていることを伺います。</span>
-              <span class="copy-line">具体的な仕様になっていなくても構いません。</span>
-            </p>
-          </article>
-          <article class="work-item">
-            <span class="num">02</span>
-            <h3 class="work-name">組み立てる</h3>
-            <p class="work-desc">
-              <span class="copy-line">必要な表現、制作物、技術、運用を整理し、進め方を決めます。</span>
-            </p>
-          </article>
-          <article class="work-item">
-            <span class="num">03</span>
-            <h3 class="work-name">つくる</h3>
-            <p class="work-desc">
-              <span class="copy-line">3Dモデル、ソフトウェア、イベントなどを目的に合わせて形にします。</span>
-            </p>
-          </article>
-          <article class="work-item">
-            <span class="num">04</span>
-            <h3 class="work-name">届ける</h3>
-            <p class="work-desc">
-              <span class="copy-line">仮想空間で実際に使える状態まで届けます。</span>
-              <span class="copy-line">必要に応じて運用や実施まで伴走します。</span>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="stage">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">About</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          ABSTは、仮想空間に根づく表現と活動をつくっていくプロジェクトです。
-        </p>
-        <p class="copy">
-          <span class="copy-line">いまは、一つひとつの制作、開発、企画から始めています。</span>
-          <span class="copy-line">けれど見ているのは、仮想空間で人が姿を持ち、活動し、関係を築き、文化を育てていく未来です。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">ABSTは、その未来に必要なものを、ひとつずつ作っていきます。</span>
-          <span class="copy-line">誰かの「なりたい」と「やりたい」が、仮想空間で実際に動き出すところまで届けます。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="representative">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Representative</h2>
-      </div>
-      <div class="section-body">
-        <h3 class="profile-name">坂本クリス</h3>
-        <p class="copy">
-          <span class="copy-line">ABSTは、坂本クリスが代表として進めています。</span>
-          <span class="copy-line">ソフトウェア開発を軸に、画像・音声・3D・AI・Webなどを扱ってきました。</span>
-        </p>
-        <p class="copy">
-          <span class="copy-line">坂本クリス自身も、VRChatで遊び、場を作り、人と関わりながら活動しています。</span>
-          <span class="copy-line">仮想空間を外から見るのではなく、自ら楽しみながら、そこにある表現と関係の可能性を広げていきます。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="partners">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Partners</h2>
-      </div>
-      <div class="section-body">
-        <p class="lead">
-          ABSTは、仮想空間での活動づくりに関わる作り手ともつながっていきます。
-        </p>
-        <p class="copy">
-          <span class="copy-line">3Dモデル制作、ソフトウェア開発、イベント企画、ワールド制作、演出、運用など。</span>
-          <span class="copy-line">仮想空間に関わるスキルを持つ人と連携し、実現できることを増やしていきます。</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="section-label">
-        <span class="label-bar" aria-hidden="true"></span>
-        <h2 class="section-title">Contact</h2>
-      </div>
-      <div class="section-body">
-        <div class="contact-row">
-          <p class="copy">
-            <span class="copy-line">なりたい姿がある。始めたい活動がある。</span>
-            <span class="copy-line">誰かと集まる場所をつくりたい。</span>
-            <span class="copy-line">まだ形になっていない想いからでも、ABSTは一緒に考えます。</span>
-          </p>
-          <a class="mail-link" href="mailto:contact@abst.im">
-            <span>contact@abst.im</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <nav class="links" aria-label="External links">
+      <a href="https://abst.booth.pm/" target="_blank" rel="noopener">BOOTH</a>
+      <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">VRChat</a>
+      <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">X</a>
+      <a href="mailto:contact@abst.im">Contact</a>
+    </nav>
   </main>
 </body>
 </html>
