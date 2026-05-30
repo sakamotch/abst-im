@@ -14,15 +14,16 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#080809">
+  <meta name="theme-color" content="#050506">
   <link rel="icon" type="image/svg+xml" href="abst.svg">
   <style>
     :root {
-      --bg: #080809;
+      --bg: #050506;
+      --panel: #0c0d0f;
       --text: #f7f3ee;
-      --muted: rgba(247, 243, 238, .62);
-      --quiet: rgba(247, 243, 238, .38);
-      --line: rgba(247, 243, 238, .12);
+      --muted: rgba(247, 243, 238, .68);
+      --quiet: rgba(247, 243, 238, .42);
+      --line: rgba(247, 243, 238, .14);
       --accent: #b05caf;
       --side: clamp(24px, 7vw, 96px);
       color-scheme: dark;
@@ -43,7 +44,7 @@
       min-height: 100svh;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, monospace;
       text-rendering: geometricPrecision;
       -webkit-font-smoothing: antialiased;
       padding: clamp(28px, 6vw, 72px) var(--side);
@@ -70,13 +71,47 @@
     .hero {
       align-self: center;
       display: grid;
-      gap: clamp(30px, 4.6vw, 44px);
+    }
+
+    .terminal {
+      display: grid;
+      gap: clamp(26px, 4.2vw, 40px);
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background:
+        linear-gradient(rgba(247, 243, 238, .025) 50%, transparent 50%) 0 0 / 100% 6px,
+        var(--panel);
+      padding: clamp(20px, 4.2vw, 36px);
+      box-shadow: inset 0 1px 0 rgba(247, 243, 238, .06);
+    }
+
+    .terminal-line {
+      width: min(100%, 39rem);
+      margin-inline: auto;
+      min-width: 0;
+      color: var(--muted);
+      font-size: clamp(.82rem, 1.4vw, .95rem);
+      line-height: 1.5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    .terminal-content {
+      display: grid;
+      gap: clamp(26px, 4.2vw, 40px);
+      width: min(100%, 39rem);
+      margin-inline: auto;
     }
 
     .intro {
       display: grid;
-      gap: 20px;
-      max-width: 39rem;
+      gap: 18px;
     }
 
     .title,
@@ -89,10 +124,10 @@
       align-items: center;
       gap: .24em;
       color: var(--text);
-      font-size: 6rem;
-      line-height: .9;
+      font-size: clamp(3.8rem, 11vw, 6rem);
+      line-height: 1;
       font-weight: 400;
-      letter-spacing: .5rem;
+      letter-spacing: 0;
     }
 
     .title-logo {
@@ -107,7 +142,7 @@
       max-width: 32rem;
       color: var(--muted);
       font-size: clamp(.96rem, 1.8vw, 1.12rem);
-      line-height: 1.9;
+      line-height: 1.85;
       font-weight: 400;
     }
 
@@ -115,12 +150,11 @@
       display: grid;
       border-top: 1px solid var(--line);
       max-width: 35rem;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     }
 
     .links a {
       display: grid;
-      grid-template-columns: 1.2rem minmax(6.5rem, .42fr) 1fr;
+      grid-template-columns: 1.2rem minmax(7rem, .42fr) 1fr;
       align-items: center;
       gap: 16px;
       min-height: 54px;
@@ -152,6 +186,7 @@
     .links a:focus-visible {
       background: rgba(247, 243, 238, .025);
       border-bottom-color: rgba(176, 92, 175, .72);
+      color: #fff;
       outline: none;
     }
 
@@ -165,7 +200,11 @@
       }
 
       .title {
-        font-size: 3.8rem;
+        font-size: clamp(2.85rem, 16vw, 3.8rem);
+      }
+
+      .terminal {
+        padding: 18px;
       }
 
       .links {
@@ -188,39 +227,47 @@
 <body>
   <main class="page" aria-labelledby="page-title">
     <section class="hero" aria-label="ABST overview">
-      <div class="intro">
-        <h1 id="page-title" class="title">
-          <img class="title-logo" src="abst.svg" alt="" width="600" height="600">
-          <span>ABST</span>
-        </h1>
-        <p class="copy">
-          仮想空間をもっと楽しく。<br>
-          ソフトウェアや3Dモデルなど、仮想空間に関わるものを作っています。
-        </p>
-      </div>
+      <div class="terminal">
+        <div class="terminal-line">
+          <span class="prompt">abst@im:~$</span> ./about
+        </div>
 
-      <nav class="links" aria-label="Links">
-        <a href="https://here.abst.im/" target="_blank" rel="noopener">
-          <span class="link-name">Here!</span>
-          <span class="link-note">空間系SNS</span>
-        </a>
-        <a href="https://abst.booth.pm/" target="_blank" rel="noopener">
-          <span class="link-name">BOOTH</span>
-          <span class="link-note">ABSTのショップ</span>
-        </a>
-        <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">
-          <span class="link-name">VRChat</span>
-          <span class="link-note">坂本クリス</span>
-        </a>
-        <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">
-          <span class="link-name">X</span>
-          <span class="link-note">@KurisuSakamoto</span>
-        </a>
-        <a href="mailto:contact@abst.im">
-          <span class="link-name">Contact</span>
-          <span class="link-note">contact@abst.im</span>
-        </a>
-      </nav>
+        <div class="terminal-content">
+          <div class="intro">
+            <h1 id="page-title" class="title">
+              <img class="title-logo" src="abst.svg" alt="" width="600" height="600">
+              <span>ABST</span>
+            </h1>
+            <p class="copy">
+              仮想空間をもっと楽しく。<br>
+              ソフトウェアや3Dモデルなど、仮想空間に関わるものを作っています。
+            </p>
+          </div>
+
+          <nav class="links" aria-label="Links">
+            <a href="https://here.abst.im/" target="_blank" rel="noopener">
+              <span class="link-name">Here!</span>
+              <span class="link-note">空間系SNS</span>
+            </a>
+            <a href="https://abst.booth.pm/" target="_blank" rel="noopener">
+              <span class="link-name">BOOTH</span>
+              <span class="link-note">ABSTのショップ</span>
+            </a>
+            <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">
+              <span class="link-name">VRChat</span>
+              <span class="link-note">坂本クリス</span>
+            </a>
+            <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">
+              <span class="link-name">X</span>
+              <span class="link-note">@KurisuSakamoto</span>
+            </a>
+            <a href="mailto:contact@abst.im">
+              <span class="link-name">Contact</span>
+              <span class="link-note">contact@abst.im</span>
+            </a>
+          </nav>
+        </div>
+      </div>
     </section>
   </main>
 </body>
