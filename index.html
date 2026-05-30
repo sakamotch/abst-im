@@ -115,23 +115,31 @@
       display: grid;
       border-top: 1px solid var(--line);
       max-width: 35rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     }
 
     .links a {
       display: grid;
-      grid-template-columns: minmax(6.5rem, .45fr) 1fr auto;
+      grid-template-columns: 1.2rem minmax(6.5rem, .42fr) 1fr;
       align-items: center;
-      gap: 18px;
-      min-height: 58px;
+      gap: 16px;
+      min-height: 54px;
       border-bottom: 1px solid var(--line);
       color: var(--text);
-      transition: border-color .18s ease, color .18s ease;
+      transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+    }
+
+    .links a::before {
+      content: ">";
+      color: var(--accent);
+      font-size: .86rem;
+      line-height: 1;
     }
 
     .link-name {
       font-size: .92rem;
       line-height: 1;
-      font-weight: 600;
+      font-weight: 400;
     }
 
     .link-note {
@@ -140,23 +148,11 @@
       line-height: 1.5;
     }
 
-    .link-arrow {
-      color: var(--accent);
-      font-size: 1rem;
-      line-height: 1;
-      transform: translateX(0);
-      transition: transform .18s ease;
-    }
-
     .links a:hover,
     .links a:focus-visible {
+      background: rgba(247, 243, 238, .025);
       border-bottom-color: rgba(176, 92, 175, .72);
       outline: none;
-    }
-
-    .links a:hover .link-arrow,
-    .links a:focus-visible .link-arrow {
-      transform: translateX(4px);
     }
 
     @media (max-width: 640px) {
@@ -177,13 +173,13 @@
       }
 
       .links a {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1.2rem 1fr;
         gap: 8px 16px;
         padding: 16px 0;
       }
 
       .link-note {
-        grid-column: 1 / -1;
+        grid-column: 2 / -1;
         max-width: 18rem;
       }
     }
@@ -207,27 +203,22 @@
         <a href="https://here.abst.im/" target="_blank" rel="noopener">
           <span class="link-name">Here!</span>
           <span class="link-note">空間系SNS</span>
-          <span class="link-arrow" aria-hidden="true">/</span>
         </a>
         <a href="https://abst.booth.pm/" target="_blank" rel="noopener">
           <span class="link-name">BOOTH</span>
           <span class="link-note">ABSTのショップ</span>
-          <span class="link-arrow" aria-hidden="true">/</span>
         </a>
         <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">
           <span class="link-name">VRChat</span>
           <span class="link-note">坂本クリス</span>
-          <span class="link-arrow" aria-hidden="true">/</span>
         </a>
         <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">
           <span class="link-name">X</span>
           <span class="link-note">@KurisuSakamoto</span>
-          <span class="link-arrow" aria-hidden="true">/</span>
         </a>
         <a href="mailto:contact@abst.im">
           <span class="link-name">Contact</span>
           <span class="link-note">contact@abst.im</span>
-          <span class="link-arrow" aria-hidden="true">/</span>
         </a>
       </nav>
     </section>
