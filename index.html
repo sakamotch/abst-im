@@ -10,7 +10,7 @@
   <meta property="og:title" content="ABST">
   <meta property="og:description" content="仮想空間をもっと楽しくするためのプロダクトと制作。">
   <meta property="og:url" content="https://abst.im/">
-  <meta property="og:image" content="https://abst.im/ogp.svg">
+  <meta property="og:image" content="https://abst.im/ogp.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -64,37 +64,18 @@
       min-height: calc(100svh - clamp(28px, 6vw, 72px) * 2);
       margin: 0 auto;
       display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: clamp(56px, 10vw, 128px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: fit-content;
-      color: var(--muted);
-      font-size: .72rem;
-      line-height: 1;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .logo {
-      width: 34px;
-      height: auto;
-      display: block;
+      align-content: center;
     }
 
     .hero {
       align-self: center;
       display: grid;
-      gap: clamp(32px, 5vw, 48px);
+      gap: clamp(30px, 4.6vw, 44px);
     }
 
     .intro {
       display: grid;
-      gap: 22px;
+      gap: 20px;
       max-width: 39rem;
     }
 
@@ -104,15 +85,26 @@
     }
 
     .title {
+      display: flex;
+      align-items: center;
+      gap: .24em;
       color: var(--text);
-      font-size: clamp(3.6rem, 13vw, 8.75rem);
-      line-height: .86;
-      font-weight: 600;
-      letter-spacing: 0;
+      font-size: 6rem;
+      line-height: .9;
+      font-weight: 400;
+      letter-spacing: .5rem;
+    }
+
+    .title-logo {
+      width: 1.14em;
+      height: 1.14em;
+      flex: 0 0 auto;
+      display: block;
+      transform: translateY(.04em);
     }
 
     .copy {
-      max-width: 31rem;
+      max-width: 32rem;
       color: var(--muted);
       font-size: clamp(.96rem, 1.8vw, 1.12rem);
       line-height: 1.9;
@@ -167,23 +159,6 @@
       transform: translateX(4px);
     }
 
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--quiet);
-      font-size: .72rem;
-      line-height: 1.6;
-    }
-
-    .status::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      display: block;
-    }
-
     @media (max-width: 640px) {
       body {
         padding-block: 28px;
@@ -191,11 +166,10 @@
 
       .page {
         min-height: calc(100svh - 56px);
-        gap: 56px;
       }
 
       .title {
-        font-size: clamp(3.25rem, 21vw, 5.3rem);
+        font-size: 3.8rem;
       }
 
       .links {
@@ -217,23 +191,22 @@
 </head>
 <body>
   <main class="page" aria-labelledby="page-title">
-    <a class="brand" href="/" aria-label="ABST home">
-      <img class="logo" src="abst.svg" alt="" width="600" height="600">
-      <span>ABST</span>
-    </a>
-
     <section class="hero" aria-label="ABST overview">
       <div class="intro">
-        <h1 id="page-title" class="title">ABST</h1>
+        <h1 id="page-title" class="title">
+          <img class="title-logo" src="abst.svg" alt="" width="600" height="600">
+          <span>ABST</span>
+        </h1>
         <p class="copy">
-          仮想空間をもっと楽しくするためのプロダクトと制作。いまは個人事業として、空間、3Dモデル、ソフトウェアのまわりを少しずつつくっています。
+          仮想空間をもっと楽しく。<br>
+          ソフトウェアや3Dモデルなど、仮想空間に関わるものを作っています。
         </p>
       </div>
 
       <nav class="links" aria-label="Links">
         <a href="https://here.abst.im/" target="_blank" rel="noopener">
           <span class="link-name">Here!</span>
-          <span class="link-note">人が集まり、近くの声やテキストが届く共有プレゼンス空間</span>
+          <span class="link-note">空間系SNS</span>
           <span class="link-arrow" aria-hidden="true">/</span>
         </a>
         <a href="https://abst.booth.pm/" target="_blank" rel="noopener">
@@ -258,8 +231,6 @@
         </a>
       </nav>
     </section>
-
-    <p class="status">Independent virtual space works from Sakamoto Kurisu.</p>
   </main>
 </body>
 </html>

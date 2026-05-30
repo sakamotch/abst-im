@@ -24,25 +24,25 @@ fi
 TMP_LOGO="$(mktemp "${TMPDIR:-/tmp}/abst-ogp-logo.XXXXXX.png")"
 trap 'rm -f "$TMP_LOGO"' EXIT
 
-"${IM[@]}" -background none abst.svg -resize 112x112 "$TMP_LOGO"
+"${IM[@]}" -background none abst.svg -trim +repage -resize x86 "$TMP_LOGO"
 
 "${IM[@]}" \
   -size 1200x630 xc:'#080809' \
-  -fill '#b05caf' -draw 'rectangle 150,118 166,512' \
-  -gravity northwest "$TMP_LOGO" -geometry +210+130 -compose over -composite \
+  -fill '#b05caf' -draw 'rectangle 150,126 166,504' \
+  -gravity northwest "$TMP_LOGO" -geometry +214+142 -compose over -composite \
   -font "$FONT_LATIN" \
   -pointsize 116 \
   -fill '#f7f3ee' \
   -gravity northwest \
-  -annotate +210+296 'ABST' \
+  -annotate +214+260 'ABST' \
   -font "$FONT_JA" \
   -pointsize 34 \
   -fill 'rgba(247,243,238,0.68)' \
-  -annotate +214+390 '仮想空間をもっと楽しくするためのプロダクトと制作' \
+  -annotate +216+412 '仮想空間をもっと楽しくするためのプロダクトと制作' \
   -font "$FONT_LATIN" \
   -pointsize 24 \
   -fill 'rgba(247,243,238,0.42)' \
-  -annotate +214+456 'abst.im' \
+  -annotate +216+474 'abst.im' \
   ogp.png
 
 echo "Generated $ROOT_DIR/ogp.png"
