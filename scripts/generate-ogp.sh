@@ -28,23 +28,21 @@ trap 'rm -f "$TMP_LOGO"' EXIT
 
 "${IM[@]}" \
   -size 1200x630 xc:'#080809' \
-  \( -size 1200x630 xc:none -fill 'rgba(176,92,175,0.20)' -draw 'circle 600,275 980,275' -blur 0x92 \) \
-  -compose over -composite \
-  \( -size 1200x630 xc:none -fill 'rgba(176,92,175,0.09)' -draw 'circle 600,360 1160,360' -blur 0x120 \) \
-  -compose over -composite \
-  \( -size 1200x630 gradient:'#100d12-#050506' \) \
-  -compose multiply -composite \
-  -gravity center "$TMP_LOGO" -geometry +0-104 -compose over -composite \
-  -font "$FONT_JA" \
-  -pointsize 58 \
+  -fill '#b05caf' -draw 'rectangle 150,118 166,512' \
+  -gravity northwest "$TMP_LOGO" -geometry +210+130 -compose over -composite \
+  -font "$FONT_LATIN" \
+  -pointsize 116 \
   -fill '#f7f3ee' \
-  -gravity center \
-  -annotate +0+34 '仮想空間を' \
-  -annotate +0+104 'もっと楽しく' \
+  -gravity northwest \
+  -annotate +210+296 'ABST' \
+  -font "$FONT_JA" \
+  -pointsize 34 \
+  -fill 'rgba(247,243,238,0.68)' \
+  -annotate +214+390 '仮想空間をもっと楽しくするためのプロダクトと制作' \
   -font "$FONT_LATIN" \
   -pointsize 24 \
-  -fill 'rgba(247,243,238,0.54)' \
-  -annotate +0+190 'abst.im' \
+  -fill 'rgba(247,243,238,0.42)' \
+  -annotate +214+456 'abst.im' \
   ogp.png
 
 echo "Generated $ROOT_DIR/ogp.png"

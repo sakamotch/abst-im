@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ABST | 仮想空間をもっと楽しく</title>
-  <meta name="description" content="ABSTは、仮想空間をもっと楽しくするために活動しています。">
+  <title>ABST</title>
+  <meta name="description" content="ABSTは、仮想空間をもっと楽しくするためのプロダクトと制作をしています。">
   <link rel="canonical" href="https://abst.im/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ABST | 仮想空間をもっと楽しく">
-  <meta property="og:description" content="仮想空間をもっと楽しく。">
+  <meta property="og:title" content="ABST">
+  <meta property="og:description" content="仮想空間をもっと楽しくするためのプロダクトと制作。">
   <meta property="og:url" content="https://abst.im/">
-  <meta property="og:image" content="https://abst.im/ogp.png">
+  <meta property="og:image" content="https://abst.im/ogp.svg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -20,9 +20,11 @@
     :root {
       --bg: #080809;
       --text: #f7f3ee;
-      --muted: rgba(247, 243, 238, .54);
+      --muted: rgba(247, 243, 238, .62);
+      --quiet: rgba(247, 243, 238, .38);
+      --line: rgba(247, 243, 238, .12);
       --accent: #b05caf;
-      --side: clamp(24px, 7vw, 104px);
+      --side: clamp(24px, 7vw, 96px);
       color-scheme: dark;
     }
 
@@ -39,17 +41,11 @@
       margin: 0;
       min-width: 320px;
       min-height: 100svh;
-      background:
-        radial-gradient(circle at 50% 42%, rgba(176, 92, 175, .2), transparent 38rem),
-        radial-gradient(circle at 50% 58%, rgba(176, 92, 175, .09), transparent 52rem),
-        radial-gradient(circle at 50% 78%, rgba(247, 243, 238, .045), transparent 30rem),
-        linear-gradient(180deg, #100d12 0%, var(--bg) 56%, #050506 100%);
+      background: var(--bg);
       color: var(--text);
       font-family: Inter, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
       text-rendering: geometricPrecision;
       -webkit-font-smoothing: antialiased;
-      display: grid;
-      place-items: center;
       padding: clamp(28px, 6vw, 72px) var(--side);
     }
 
@@ -58,54 +54,134 @@
       text-decoration: none;
     }
 
+    ::selection {
+      background: rgba(176, 92, 175, .34);
+      color: var(--text);
+    }
+
     .page {
-      width: min(100%, 26rem);
+      width: min(100%, 48rem);
+      min-height: calc(100svh - clamp(28px, 6vw, 72px) * 2);
+      margin: 0 auto;
       display: grid;
-      justify-items: center;
-      text-align: center;
+      grid-template-rows: auto 1fr auto;
+      gap: clamp(56px, 10vw, 128px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: fit-content;
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
     .logo {
-      width: clamp(58px, 6.5vw, 84px);
+      width: 34px;
       height: auto;
       display: block;
-      margin: 0 0 clamp(52px, 8vw, 96px);
+    }
+
+    .hero {
+      align-self: center;
+      display: grid;
+      gap: clamp(32px, 5vw, 48px);
+    }
+
+    .intro {
+      display: grid;
+      gap: 22px;
+      max-width: 39rem;
+    }
+
+    .title,
+    .copy {
+      margin: 0;
     }
 
     .title {
-      margin: 0;
       color: var(--text);
-      font-size: clamp(1.35rem, 2.9vw, 2.45rem);
-      line-height: 1.28;
-      font-weight: 400;
+      font-size: clamp(3.6rem, 13vw, 8.75rem);
+      line-height: .86;
+      font-weight: 600;
       letter-spacing: 0;
-      text-wrap: balance;
     }
 
-    .title span {
-      display: block;
+    .copy {
+      max-width: 31rem;
+      color: var(--muted);
+      font-size: clamp(.96rem, 1.8vw, 1.12rem);
+      line-height: 1.9;
+      font-weight: 400;
     }
 
     .links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px clamp(16px, 2.5vw, 28px);
-      margin-top: clamp(54px, 8vw, 96px);
-      color: var(--muted);
-      font-size: .75rem;
-      line-height: 1;
+      display: grid;
+      border-top: 1px solid var(--line);
+      max-width: 35rem;
     }
 
     .links a {
-      padding: 8px 0;
-      transition: color .18s ease;
+      display: grid;
+      grid-template-columns: minmax(6.5rem, .45fr) 1fr auto;
+      align-items: center;
+      gap: 18px;
+      min-height: 58px;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      transition: border-color .18s ease, color .18s ease;
+    }
+
+    .link-name {
+      font-size: .92rem;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .link-note {
+      color: var(--quiet);
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+    .link-arrow {
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1;
+      transform: translateX(0);
+      transition: transform .18s ease;
     }
 
     .links a:hover,
     .links a:focus-visible {
-      color: var(--text);
+      border-bottom-color: rgba(176, 92, 175, .72);
       outline: none;
+    }
+
+    .links a:hover .link-arrow,
+    .links a:focus-visible .link-arrow {
+      transform: translateX(4px);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--quiet);
+      font-size: .72rem;
+      line-height: 1.6;
+    }
+
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      display: block;
     }
 
     @media (max-width: 640px) {
@@ -113,36 +189,77 @@
         padding-block: 28px;
       }
 
-      .logo {
-        margin-bottom: 48px;
+      .page {
+        min-height: calc(100svh - 56px);
+        gap: 56px;
       }
 
       .title {
-        font-size: clamp(1.35rem, 7vw, 1.85rem);
-        line-height: 1.28;
+        font-size: clamp(3.25rem, 21vw, 5.3rem);
       }
 
       .links {
-        margin-top: 48px;
-        font-size: .72rem;
+        max-width: none;
+      }
+
+      .links a {
+        grid-template-columns: 1fr auto;
+        gap: 8px 16px;
+        padding: 16px 0;
+      }
+
+      .link-note {
+        grid-column: 1 / -1;
+        max-width: 18rem;
       }
     }
   </style>
 </head>
 <body>
   <main class="page" aria-labelledby="page-title">
-    <img class="logo" src="abst.svg" alt="" width="112" height="112">
-    <h1 id="page-title" class="title">
-      <span>仮想空間を</span>
-      <span>もっと楽しく</span>
-    </h1>
+    <a class="brand" href="/" aria-label="ABST home">
+      <img class="logo" src="abst.svg" alt="" width="600" height="600">
+      <span>ABST</span>
+    </a>
 
-    <nav class="links" aria-label="External links">
-      <a href="https://abst.booth.pm/" target="_blank" rel="noopener">BOOTH</a>
-      <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">VRChat</a>
-      <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">X</a>
-      <a href="mailto:contact@abst.im">Contact</a>
-    </nav>
+    <section class="hero" aria-label="ABST overview">
+      <div class="intro">
+        <h1 id="page-title" class="title">ABST</h1>
+        <p class="copy">
+          仮想空間をもっと楽しくするためのプロダクトと制作。いまは個人事業として、空間、3Dモデル、ソフトウェアのまわりを少しずつつくっています。
+        </p>
+      </div>
+
+      <nav class="links" aria-label="Links">
+        <a href="https://here.abst.im/" target="_blank" rel="noopener">
+          <span class="link-name">Here!</span>
+          <span class="link-note">人が集まり、近くの声やテキストが届く共有プレゼンス空間</span>
+          <span class="link-arrow" aria-hidden="true">/</span>
+        </a>
+        <a href="https://abst.booth.pm/" target="_blank" rel="noopener">
+          <span class="link-name">BOOTH</span>
+          <span class="link-note">ABSTのショップ</span>
+          <span class="link-arrow" aria-hidden="true">/</span>
+        </a>
+        <a href="https://vrchat.com/home/user/usr_6a8a6fe9-287f-4af5-b6a1-4c33c30c7c2b" target="_blank" rel="noopener">
+          <span class="link-name">VRChat</span>
+          <span class="link-note">坂本クリス</span>
+          <span class="link-arrow" aria-hidden="true">/</span>
+        </a>
+        <a href="https://x.com/KurisuSakamoto" target="_blank" rel="noopener">
+          <span class="link-name">X</span>
+          <span class="link-note">@KurisuSakamoto</span>
+          <span class="link-arrow" aria-hidden="true">/</span>
+        </a>
+        <a href="mailto:contact@abst.im">
+          <span class="link-name">Contact</span>
+          <span class="link-note">contact@abst.im</span>
+          <span class="link-arrow" aria-hidden="true">/</span>
+        </a>
+      </nav>
+    </section>
+
+    <p class="status">Independent virtual space works from Sakamoto Kurisu.</p>
   </main>
 </body>
 </html>

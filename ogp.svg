@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">ABST</title>
+  <desc id="desc">仮想空間をもっと楽しくするためのプロダクトと制作。</desc>
+  <rect width="1200" height="630" fill="#080809"/>
+  <rect x="150" y="118" width="16" height="394" fill="#b05caf"/>
+  <g transform="translate(210 128) scale(.705)">
+    <g transform="matrix(1.6366247 0 0 1.6366247 -53.062146 -27.856703)">
+      <path fill="#f7f3ee" d="M75.663658 42.424139V95.207782H81.66373V42.424139Z" transform="matrix(1.3147187 0 0 1.2199613 -15.787477 -18.432777)"/>
+      <path fill="#b05caf" d="M89.870274 42.424139V95.207782H107.12564V42.424139Z" transform="matrix(1.3147187 0 0 1.2199613 -15.404846 -18.432777)"/>
+      <path fill="#f7f3ee" d="m76.708703 10.257347.000127 58.541825 5.999973-2.87801-.000127-58.5418252Z" transform="matrix(1.1854016 .52762057 -.56860215 1.0999646 -15.404846 -18.432777)"/>
+    </g>
+  </g>
+  <text x="210" y="340" fill="#f7f3ee" font-family="Inter, DejaVu Sans, sans-serif" font-size="116" font-weight="600" letter-spacing="0">ABST</text>
+  <text x="214" y="414" fill="#f7f3ee" opacity=".68" font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif" font-size="34" letter-spacing="0">仮想空間をもっと楽しくするためのプロダクトと制作</text>
+  <text x="214" y="480" fill="#f7f3ee" opacity=".42" font-family="Inter, DejaVu Sans, sans-serif" font-size="24" letter-spacing="0">abst.im</text>
+</svg>
